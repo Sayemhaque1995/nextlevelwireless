@@ -4,87 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule Repair | Next Level Wireless</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
+        /* Copy ALL your existing CSS styles from index.html here */
+        /* This ensures design consistency across pages */
+        
+        /* Add these new styles for the scheduling page */
+        .appointment-section {
+            padding: 80px 0;
+            background: white;
         }
-        .container {
+        
+        .appointment-container {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
             padding: 30px;
+            background: var(--light-color);
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        input, select, textarea {
+        
+        .appointment-form input,
+        .appointment-form select,
+        .appointment-form textarea {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 1rem;
         }
-        button {
-            background: #3a86ff;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+        
         .confirmation {
             display: none;
-            color: green;
+            text-align: center;
+            padding: 30px;
+            background: var(--success-color);
+            color: white;
+            border-radius: 10px;
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📅 Schedule Your Repair</h1>
-        <form id="repairForm">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-            <input type="email" name="email" placeholder="Email (optional)">
-            
-            <select name="device" required>
-                <option value="">Select Device</option>
-                <option>iPhone</option>
-                <option>MacBook</option>
-                <option>iPad</option>
-                <option>Samsung Galaxy</option>
-                <option>Other</option>
-            </select>
-            
-            <select name="service" required>
-                <option value="">Select Service</option>
-                <option>Screen Replacement</option>
-                <option>Battery Replacement</option>
-                <option>Water Damage Repair</option>
-                <option>Charging Port Repair</option>
-            </select>
-            
-            <input type="date" name="date" id="appointmentDate" required>
-            <input type="time" name="time" id="appointmentTime" min="10:00" max="21:00" required>
-            
-            <textarea name="issue" placeholder="Describe the issue (optional)"></textarea>
-            <button type="submit">Book Appointment</button>
-        </form>
-        <div id="confirmation" class="confirmation">
-            <h2>✅ Appointment Requested!</h2>
-            <p>We'll call you shortly to confirm. Walk-ins also welcome at:</p>
-            <p>📍 1104 Chestnut St, Philadelphia</p>
+    <!-- Copy your EXACT header from index.html -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Next <span>Level</span> Wireless</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#testimonials">Reviews</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="schedule.html" class="btn">Schedule Repair</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <!-- Scheduling Section -->
+    <section class="appointment-section">
+        <div class="container">
+            <h2 class="section-title">Schedule Your Repair</h2>
+            <div class="appointment-container">
+                <form id="repairForm" class="appointment-form">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="email" name="email" placeholder="Email (optional)">
+                    
+                    <select name="device" required>
+                        <option value="">Select Device</option>
+                        <option>iPhone</option>
+                        <option>MacBook</option>
+                        <option>iPad</option>
+                        <option>Samsung Galaxy</option>
+                        <option>Other</option>
+                    </select>
+                    
+                    <select name="service" required>
+                        <option value="">Select Service</option>
+                        <option>Screen Replacement</option>
+                        <option>Battery Replacement</option>
+                        <option>Water Damage Repair</option>
+                        <option>Charging Port Repair</option>
+                    </select>
+                    
+                    <input type="date" name="date" id="appointmentDate" required>
+                    <input type="time" name="time" id="appointmentTime" min="10:00" max="21:00" required>
+                    
+                    <textarea name="issue" placeholder="Describe the issue (optional)"></textarea>
+                    <button type="submit" class="btn btn-accent">Book Appointment</button>
+                </form>
+                
+                <div id="confirmation" class="confirmation">
+                    <h3>✅ Appointment Requested!</h3>
+                    <p>We'll call you shortly to confirm. Walk-ins also welcome at:</p>
+                    <p><strong>1104 Chestnut St, Philadelphia</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Copy your EXACT footer from index.html -->
+    <footer>
+        <!-- Your existing footer code -->
+    </footer>
 
     <script>
         // Set minimum date to today
         document.getElementById('appointmentDate').min = new Date().toISOString().split('T')[0];
         
-        // Form submission
-        const scriptURL = 'https://script.google.com/macros/s/AKfycby4_MX4esHkq6vuETnAYTuVv8ExAVoQX17MKEZ7trFbozuP6ZOsYreYpCqHewqS5sGRLg/exec'; // Paste your Apps Script URL
+        // Form submission handler
+        const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // Replace with your Apps Script URL
         const form = document.getElementById('repairForm');
         const confirmation = document.getElementById('confirmation');
 
@@ -101,6 +138,9 @@
             })
             .catch(error => alert('Error! Please call us directly at (267) 307-8893'));
         });
+
+        // Copy your existing JavaScript from index.html
+        // Mobile navigation, smooth scrolling, etc.
     </script>
 </body>
 </html>
