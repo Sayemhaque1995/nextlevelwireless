@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Repair | Next Level Wireless</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #3a86ff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .confirmation {
+            display: none;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Schedule Your Repair</h1>
+        <form id="repairForm">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="email" name="email" placeholder="Email (optional)">
+            
+            <select name="device" required>
+                <option value="">Select Device</option>
+                <option>iPhone</option>
+                <option>MacBook</option>
+                <option>iPad</option>
+                <option>Samsung Galaxy</option>
+                <option>Other</option>
+            </select>
+            
+            <select name="service" required>
+                <option value="">Select Service</option>
+                <option>Screen Replacement</option>
+                <option>Battery Replacement</option>
+                <option>Water Damage Repair</option>
+                <option>Charging Port Repair</option>
+            </select>
+            
+            <input type="date" name="date" id="appointmentDate" required>
+            <input type="time" name="time" id="appointmentTime" min="10:00" max="21:00" required>
+            
+            <textarea name="issue" placeholder="Describe the issue (optional)"></textarea>
+            <button type="submit">Book Appointment</button>
+        </form>
+        <div id="confirmation" class="confirmation">
+            <h2>✅ Appointment Requested!</h2>
+            <p>We'll call you shortly to confirm. Walk-ins also welcome at:</p>
+            <p>📍 1104 Chestnut St, Philadelphia</p>
+        </div>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        document.getElementById('appointmentDate').min = new Date().toISOString().split('T')[0];
+        
+        // Form submission
+        const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // Paste your Apps Script URL
+        const form = document.getElementById('repairForm');
+        const confirmation = document.getElementById('confirmation');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+            })
+            .then(response => {
+                form.style.display = 'none';
+                confirmation.style.display = 'block';
+                window.scrollTo(0, 0);
+            })
+            .catch(error => alert('Error! Please call us directly at (267) 307-8893'));
+        });
+    </script>
+</body>
+</html>
