@@ -3,464 +3,848 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Next Level Wireless - Professional Phone & Device Repair</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Next Level Wireless - Premium Device Repair Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
         :root {
-            --primary-color: #3a86ff;
-            --secondary-color: #8338ec;
-            --accent-color: #ff006e;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --success-color: #28a745;
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --dark-gray: #495057;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #ef233c;
+            --white: #ffffff;
+            --black: #000000;
+            
+            --bg: var(--light);
+            --text: var(--dark);
+            --card-bg: var(--white);
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        
+
+        .dark-mode {
+            --primary: #4895ef;
+            --primary-dark: #3a7bc8;
+            --secondary: #560bad;
+            --accent: #f72585;
+            --light: #121212;
+            --dark: #f8f9fa;
+            --gray: #adb5bd;
+            --light-gray: #212529;
+            --dark-gray: #e9ecef;
+            --bg: #121212;
+            --text: var(--white);
+            --card-bg: #1e1e1e;
+            --nav-bg: rgba(30, 30, 30, 0.95);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f5f5f5;
+            color: var(--text);
+            background-color: var(--bg);
+            transition: var(--transition);
+            overflow-x: hidden;
         }
-        
+
         a {
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--primary);
+            transition: var(--transition);
         }
-        
+
+        a:hover {
+            color: var(--accent);
+        }
+
         ul {
             list-style: none;
         }
-        
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-        
-        .btn-accent {
-            background: var(--accent-color);
-        }
-        
-        .btn-accent:hover {
-            background: #d8005f;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            color: var(--dark-color);
+
+        .section {
+            padding: 100px 0;
             position: relative;
         }
-        
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            color: var(--primary);
+        }
+
         .section-title::after {
             content: '';
             display: block;
             width: 80px;
             height: 4px;
-            background: var(--primary-color);
-            margin: 10px auto;
+            background: var(--accent);
+            margin: 15px auto 30px;
             border-radius: 2px;
         }
-        
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
         }
-        
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+        }
+
+        .btn-accent:hover {
+            background: #e51779;
+            box-shadow: 0 6px 20px rgba(247, 37, 133, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mt-5 { margin-top: 3rem; }
+
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        .mb-5 { margin-bottom: 3rem; }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--nav-bg);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
         }
-        
+
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
         }
-        
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
         .logo span {
-            color: var(--secondary-color);
+            color: var(--accent);
         }
-        
+
         .nav-links {
             display: flex;
+            align-items: center;
         }
-        
+
         .nav-links li {
             margin-left: 30px;
+            position: relative;
         }
-        
+
         .nav-links a {
-            color: var(--dark-color);
+            color: var(--text);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 1rem;
+            position: relative;
         }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
         }
-        
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-btns {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 20px;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent);
+            transform: rotate(30deg);
+        }
+
         .hamburger {
             display: none;
             cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
         }
-        
+
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+            min-height: 800px;
             display: flex;
             align-items: center;
-            text-align: center;
-            color: white;
-            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9) 0%, rgba(63, 55, 201, 0.9) 100%);
+            z-index: -1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.2;
+        }
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
         }
-        
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero .btn {
+            padding: 15px 35px;
+            font-size: 1rem;
+        }
+
+        .hero .btn-outline {
+            border-color: white;
+            color: white;
+        }
+
+        .hero .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
         /* Services Section */
         .services {
-            padding: 80px 0;
-            background: white;
+            background-color: var(--bg);
         }
-        
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .service-card {
-            background: var(--light-color);
-            border-radius: 10px;
+            background: var(--card-bg);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-        
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.7));
+            z-index: 1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
         .service-img {
             height: 200px;
             overflow: hidden;
         }
-        
+
         .service-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: var(--transition);
         }
-        
+
         .service-card:hover .service-img img {
             transform: scale(1.1);
         }
-        
+
         .service-content {
-            padding: 20px;
+            padding: 25px;
+            position: relative;
+            z-index: 2;
         }
-        
+
         .service-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
-        
+
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
         /* Pricing Section */
         .pricing {
-            padding: 80px 0;
-            background: var(--light-color);
+            background-color: var(--light-gray);
         }
-        
+
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .pricing-card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
             text-align: center;
-            transition: transform 0.3s;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
-        
+
         .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-        
+
         .pricing-card.popular {
-            border: 2px solid var(--primary-color);
-            position: relative;
+            border: 2px solid var(--primary);
         }
-        
+
         .popular-tag {
             position: absolute;
-            top: -15px;
-            right: 20px;
-            background: var(--primary-color);
+            top: 15px;
+            right: -30px;
+            background: var(--accent);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 5px 40px;
             font-size: 0.8rem;
-            font-weight: bold;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 2;
         }
-        
+
         .price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
             margin: 20px 0;
         }
-        
+
         .price span {
             font-size: 1rem;
-            color: var(--dark-color);
+            font-weight: 400;
+            color: var(--gray);
         }
-        
+
         .pricing-features {
             margin-bottom: 30px;
         }
-        
+
         .pricing-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--gray);
         }
-        
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
         /* About Section */
-        .about {
-            padding: 80px 0;
-            background: white;
-        }
-        
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
         }
-        
+
         .about-img {
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
-        
+
         .about-img img {
             width: 100%;
             height: auto;
             display: block;
+            transition: var(--transition);
         }
-        
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
         .about-text h2 {
+            font-size: 2rem;
             margin-bottom: 20px;
-            color: var(--primary-color);
+            color: var(--primary);
         }
-        
+
         .about-text p {
             margin-bottom: 15px;
+            color: var(--gray);
         }
-        
-        /* Testimonials */
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Testimonials Section */
         .testimonials {
-            padding: 80px 0;
-            background: var(--light-color);
+            background-color: var(--light-gray);
         }
-        
+
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .testimonial-card {
-            background: white;
+            background: var(--card-bg);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
-        
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
         .testimonial-card .quote {
             font-style: italic;
             margin-bottom: 20px;
+            color: var(--gray);
+            position: relative;
         }
-        
+
+        .testimonial-card .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+
+        .rating {
+            color: var(--warning);
+            margin-bottom: 15px;
+        }
+
         .testimonial-author {
             display: flex;
             align-items: center;
         }
-        
+
         .author-img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             overflow: hidden;
             margin-right: 15px;
+            border: 3px solid var(--primary);
         }
-        
+
         .author-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .author-info h4 {
             margin-bottom: 5px;
+            color: var(--primary);
         }
-        
+
         .author-info p {
-            color: #666;
+            color: var(--gray);
             font-size: 0.9rem;
         }
-        
+
         /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: white;
-        }
-        
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-        
+
         .contact-info h3 {
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--primary-color);
+            color: var(--primary);
         }
-        
+
         .contact-info p {
             margin-bottom: 30px;
+            color: var(--gray);
         }
-        
+
         .contact-details {
             margin-bottom: 30px;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
-        
-        .contact-item i {
-            width: 40px;
-            height: 40px;
-            background: var(--light-color);
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
-            color: var(--primary-color);
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
-        
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .contact-text p {
+            margin: 0;
+            color: var(--gray);
+        }
+
         .contact-form .form-group {
             margin-bottom: 20px;
         }
-        
+
         .contact-form input,
-        .contact-form textarea {
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
             font-size: 1rem;
+            background: var(--card-bg);
+            color: var(--text);
+            transition: var(--transition);
         }
-        
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
         .contact-form textarea {
             height: 150px;
             resize: vertical;
         }
-        
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
         /* Footer */
         footer {
-            background: var(--dark-color);
+            background: var(--dark);
             color: white;
-            padding: 50px 0 20px;
+            padding: 80px 0 30px;
         }
-        
+
         .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
-        
+
         .footer-col h3 {
+            font-size: 1.3rem;
             margin-bottom: 20px;
-            color: var(--primary-color);
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
         }
-        
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-col p {
+            color: #adb5bd;
+            margin-bottom: 20px;
+        }
+
         .footer-col ul li {
             margin-bottom: 10px;
         }
-        
+
         .footer-col ul li a {
-            color: #ddd;
-            transition: color 0.3s;
+            color: #adb5bd;
+            transition: var(--transition);
+            display: block;
         }
-        
+
         .footer-col ul li a:hover {
-            color: var(--primary-color);
+            color: var(--primary);
+            padding-left: 5px;
         }
-        
+
         .social-links {
             display: flex;
             gap: 15px;
+            margin-top: 20px;
         }
-        
+
         .social-links a {
             display: flex;
             align-items: center;
@@ -470,22 +854,43 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
-        
+
         .social-links a:hover {
-            background: var(--primary-color);
+            background: var(--primary);
             transform: translateY(-3px);
         }
-        
+
         .copyright {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            color: #aaa;
+            color: #6c757d;
         }
-        
+
+        /* Page Transitions */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .about-content {
@@ -495,20 +900,31 @@
             .about-img {
                 order: -1;
             }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
         }
-        
+
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
                 top: 80px;
                 left: -100%;
-                width: 100%;
+                width: 80%;
                 height: calc(100vh - 80px);
-                background: white;
+                background: var(--nav-bg);
                 flex-direction: column;
-                align-items: center;
-                padding: 40px 0;
-                transition: left 0.3s;
+                align-items: flex-start;
+                padding: 40px;
+                transition: var(--transition);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
             
             .nav-links.active {
@@ -530,9 +946,17 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
-        
+
         @media (max-width: 576px) {
+            .hero {
+                min-height: 700px;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
@@ -541,395 +965,816 @@
                 font-size: 1rem;
             }
             
-            .btn {
-                padding: 8px 16px;
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
             }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-circle"></div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Next <span>Level</span> Wireless</a>
+                <a href="#" class="logo" data-page="home">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjNDM2MWVlIiBkPSJNNDY0IDI1NkEyMDggMjA4IDAgMSAxIDQ4IDI1NkEyMDggMjA4IDAgMSAxIDQ2NCAyNTZ6TTAgMjU2QTI1NiAyNTYgMCAxIDAgNTEyIDI1NkEyNTYgMjU2IDAgMSAwIDAgMjU2em0yNzAuNiA5My4zYy0xMC4yIDExLjgtMjUuMyAxOC43LTQxLjUgMTguN0gyMTYuMWMtMjYuNSAwLTQ4LTIxLjUtNDgtNDhWMjQwYzAtMjYuNSAyMS41LTQ4IDQ4LTQ4aDEyLjljMTYuMiAwIDMxLjMgNi45IDQxLjUgMTguN2wxOS4xIDIxLjhjNi4xIDcgOS41IDE2LjEgOS41IDI1LjRzLTMuNCAxOC40LTkuNSAyNS40bC0xOS4xIDIxLjh6Ii8+PC9zdmc+" alt="Logo">
+                    Next <span>Level</span> Wireless
+                </a>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" class="nav-link" data-page="testimonials">Reviews</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
+                <div class="nav-btns">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Expert Phone & Device Repairs You Can Trust</h1>
-                <p>Fast, affordable, and reliable repair services for all your devices. We fix smartphones, tablets, MacBooks, consoles and more with same-day service available.</p>
-                <a href="#contact" class="btn btn-accent">Book a Repair</a>
-                <a href="#services" class="btn">Our Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Repair Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1609234173662-e3bb006ca845?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Screen Repair">
-                    </div>
-                    <div class="service-content">
-                        <h3>Screen Replacement</h3>
-                        <p>Cracked or broken screen? We replace screens on all major smartphone brands with high-quality parts and precision workmanship.</p>
-                        <a href="#pricing" class="btn">View Pricing</a>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1512439408685-2e399291a4e6?q=80&w=1095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Battery Replacement">
-                    </div>
-                    <div class="service-content">
-                        <h3>Battery Replacement</h3>
-                        <p>Is your phone dying too quickly? We install premium batteries that restore your device's original battery life and performance.</p>
-                        <a href="#pricing" class="btn">View Pricing</a>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Water Damage Repair">
-                    </div>
-                    <div class="service-content">
-                        <h3>Water Damage Repair</h3>
-                        <p>Accidental water exposure? Our specialized cleaning and repair process can often save water-damaged devices when acted upon quickly.</p>
-                        <a href="#pricing" class="btn">View Pricing</a>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Charging Port Repair">
-                    </div>
-                    <div class="service-content">
-                        <h3>Charging Port Repair</h3>
-                        <p>Having trouble charging your device? We repair or replace faulty charging ports to get your device charging like new again.</p>
-                        <a href="#pricing" class="btn">View Pricing</a>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Software Issues">
-                    </div>
-                    <div class="service-content">
-                        <h3>Software Troubleshooting</h3>
-                        <p>From software updates to virus removal, our technicians can diagnose and fix a wide range of software-related issues.</p>
-                        <a href="#pricing" class="btn">View Pricing</a>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="iPad Repair">
-                    </div>
-                    <div class="service-content">
-                        <h3>iPad Repairs</h3>
-                        <p>Digitizer replacement, LED replacement, and other iPad repairs performed by certified technicians using quality parts.</p>
-                        <a href="#contact" class="btn">Contact Us</a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="MacBook Repair">
-                    </div>
-                    <div class="service-content">
-                        <h3>MacBook Repairs</h3>
-                        <p>Screen replacement, battery replacement, and other MacBook repairs performed by Apple-certified technicians.</p>
-                        <a href="#contact" class="btn">Contact Us</a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Console Repair">
-                    </div>
-                    <div class="service-content">
-                        <h3>Console Repairs</h3>
-                        <p>HDMI replacement, power button replacement, power supply replacement for all major gaming consoles.</p>
-                        <a href="#contact" class="btn">Contact Us</a>
+    <!-- Home Page -->
+    <section class="page active" id="home-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Phone Repair" class="hero-bg">
+            <div class="container">
+                <div class="hero-content slide-in-left">
+                    <h1>Premium Device Repair Services</h1>
+                    <p>Fast, affordable, and reliable repair services for all your devices. We fix smartphones, tablets, MacBooks, consoles and more with same-day service available.</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn btn-accent" data-page="contact">Book a Repair</a>
+                        <a href="#" class="btn btn-outline" data-page="services">Our Services</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <a href="#" class="scroll-down" data-page="services">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Repair Pricing</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Screen Replacement</h3>
-                    <div class="price">$79 <span>and up</span></div>
-                    <ul class="pricing-features">
-                        <li>iPhone 12/13: $79-$129</li>
-                        <li>iPhone X/11: $69-$119</li>
-                        <li>iPhone 6-8: $49-$89</li>
-                        <li>Samsung Galaxy: $89-$149</li>
-                        <li>Google Pixel: $79-$129</li>
-                        <li>iPad Screen: $149-$299</li>
-                        <li>MacBook Screen: $199-$499</li>
-                    </ul>
-                    <a href="#contact" class="btn">Book Now</a>
-                </div>
+        <!-- Services Preview -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Popular Services</h2>
+                <p class="section-subtitle">We specialize in repairing all major brands and devices with high-quality parts and expert technicians.</p>
                 
-                <div class="pricing-card popular">
-                    <div class="popular-tag">Most Popular</div>
-                    <h3>Battery Replacement</h3>
-                    <div class="price">$49 <span>and up</span></div>
-                    <ul class="pricing-features">
-                        <li>iPhone 12/13: $59</li>
-                        <li>iPhone X/11: $49</li>
-                        <li>iPhone 6-8: $39</li>
-                        <li>Samsung Galaxy: $49-$69</li>
-                        <li>Google Pixel: $49-$59</li>
-                        <li>iPad Battery: $99-$199</li>
-                        <li>MacBook Battery: $149-$299</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-accent">Book Now</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>Other Services</h3>
-                    <div class="price">$29 <span>and up</span></div>
-                    <ul class="pricing-features">
-                        <li>Charging Port: $29-$59</li>
-                        <li>Camera Repair: $49-$89</li>
-                        <li>Speaker Repair: $39-$69</li>
-                        <li>Water Damage: $69-$129</li>
-                        <li>Software Reset: $29-$49</li>
-                        <li>Console HDMI Port: $79</li>
-                        <li>Diagnostic: Free</li>
-                    </ul>
-                    <a href="#contact" class="btn">Book Now</a>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 30px; font-style: italic;">Prices may vary depending on device model and damage extent. Contact us for exact pricing.</p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Next Level Wireless</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Your One-Stop Device Solution</h2>
-                    <p>At Next Level Wireless, we're passionate about providing top-quality device repair services with exceptional customer service. Our team of certified technicians has years of experience fixing all types of mobile devices, tablets, MacBooks, and gaming consoles.</p>
-                    <p>We use only premium quality parts that meet or exceed OEM standards, ensuring your device performs like new after our repairs. All our repairs come with a 90-day warranty for your peace of mind.</p>
-                    <p>Beyond repairs, we offer a wide selection of new and refurbished devices including iPhones, iPads, Android phones, AirPods, and Apple Watches. We also provide phone service activations for all major carriers and pay your phone bills.</p>
-                    <p>Our store also carries a comprehensive selection of accessories including screen protectors, phone cases, charging cables, portable chargers, speakers, gaming controllers, Bluetooth headphones, and much more.</p>
-                    <p>Whether you need a quick screen replacement or complex board-level repair, you can trust the experts at Next Level Wireless to get your device back in perfect working order.</p>
-                    <a href="#contact" class="btn">Visit Our Shop</a>
-                </div>
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Repair Shop">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Additional Services Section -->
-    <section class="services" style="background-color: #f8f9fa;">
-        <div class="container">
-            <h2 class="section-title">Additional Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Device Reset">
-                    </div>
-                    <div class="service-content">
-                        <h3>Device Reset Services</h3>
-                        <ul style="text-align: left; padding-left: 20px;">
-                            <li>All Apple Device iTunes Reset</li>
-                            <li>All Android Device Reset</li>
-                            <li>Data Backup & Transfer</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Phone Activation">
-                    </div>
-                    <div class="service-content">
-                        <h3>Phone Service Activations</h3>
-                        <ul style="text-align: left; padding-left: 20px;">
-                            <li>T-Mobile</li>
-                            <li>Simple Mobile</li>
-                            <li>AT&T</li>
-                            <li>Verizon</li>
-                            <li>H2O</li>
-                            <li>Lycamobile</li>
-                            <li>Xfinity Prepaid ($45/month unlimited)</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Accessories">
-                    </div>
-                    <div class="service-content">
-                        <h3>Accessories We Carry</h3>
-                        <ul style="text-align: left; padding-left: 20px;">
-                            <li>Screen Protectors (Regular & Privacy)</li>
-                            <li>Phone Cases (Regular & Defender)</li>
-                            <li>Charging Adapters & Cables</li>
-                            <li>Portable Chargers</li>
-                            <li>Speakers & Bluetooth Headphones</li>
-                            <li>AirPods & Apple Watch Accessories</li>
-                            <li>Gaming Controllers & HDMI Cables</li>
-                            <li>Firesticks 4K & Electric Scooters</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="quote">
-                        "I dropped my iPhone and shattered the screen. Next Level Wireless had it fixed in under an hour at a great price. The screen looks and works perfectly - you'd never know it was replaced!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J.">
+                <div class="services-grid">
+                    <div class="service-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1609234173662-e3bb006ca845?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Screen Repair">
                         </div>
-                        <div class="author-info">
-                            <h4>Sarah J.</h4>
-                            <p>Google Review</p>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-mobile-screen"></i>
+                            </div>
+                            <h3>Screen Replacement</h3>
+                            <p>Cracked or broken screen? We replace screens on all major smartphone brands with high-quality parts and precision workmanship.</p>
+                            <a href="#" class="btn btn-outline" data-page="services">Learn More</a>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="quote">
-                        "My Samsung's battery was draining crazy fast. These guys replaced it same day and now my phone lasts longer than when it was new! Super professional service and fair pricing."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Michael T.</h4>
-                            <p>Yelp Review</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="quote">
-                        "After my phone took a swim in the pool, I thought it was done for. Next Level Wireless managed to save all my data and get it working again. Lifesavers! Will never go anywhere else."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily R.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Emily R.</h4>
-                            <p>Facebook Review</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>Have questions about our services or need to book a repair? Contact us using the form or visit our shop during business hours.</p>
                     
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>1104 Chestnut St STORE<br>Philadelphia, PA 19107</p>
+                    <div class="service-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1512439408685-2e399291a4e6?q=80&w=1095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Battery Replacement">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-battery-full"></i>
+                            </div>
+                            <h3>Battery Replacement</h3>
+                            <p>Is your phone dying too quickly? We install premium batteries that restore your device's original battery life and performance.</p>
+                            <a href="#" class="btn btn-outline" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in" style="animation-delay: 0.3s;">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Water Damage Repair">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3>Water Damage Repair</h3>
+                            <p>Accidental water exposure? Our specialized cleaning and repair process can often save water-damaged devices when acted upon quickly.</p>
+                            <a href="#" class="btn btn-outline" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section" style="background-color: var(--light-gray);">
+            <div class="container">
+                <div class="about-stats">
+                    <div class="stat-item fade-in" style="animation-delay: 0.1s;">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Devices Repaired</div>
+                    </div>
+                    <div class="stat-item fade-in" style="animation-delay: 0.2s;">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-item fade-in" style="animation-delay: 0.3s;">
+                        <div class="stat-number">30 min</div>
+                        <div class="stat-label">Average Repair Time</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Services Page -->
+    <section class="page" id="services-page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Repair Services</h2>
+                <p class="section-subtitle">We offer comprehensive repair services for all your devices using high-quality parts and expert technicians.</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1609234173662-e3bb006ca845?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Screen Repair">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-mobile-screen"></i>
+                            </div>
+                            <h3>Screen Replacement</h3>
+                            <p>Cracked or broken screen? We replace screens on all major smartphone brands with high-quality parts and precision workmanship.</p>
+                            <a href="#" class="btn btn-outline" data-page="pricing">View Pricing</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1512439408685-2e399291a4e6?q=80&w=1095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Battery Replacement">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-battery-full"></i>
+                            </div>
+                            <h3>Battery Replacement</h3>
+                            <p>Is your phone dying too quickly? We install premium batteries that restore your device's original battery life and performance.</p>
+                            <a href="#" class="btn btn-outline" data-page="pricing">View Pricing</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Water Damage Repair">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3>Water Damage Repair</h3>
+                            <p>Accidental water exposure? Our specialized cleaning and repair process can often save water-damaged devices when acted upon quickly.</p>
+                            <a href="#" class="btn btn-outline" data-page="pricing">View Pricing</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Charging Port Repair">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <h3>Charging Port Repair</h3>
+                            <p>Having trouble charging your device? We repair or replace faulty charging ports to get your device charging like new again.</p>
+                            <a href="#" class="btn btn-outline" data-page="pricing">View Pricing</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Software Issues">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <h3>Software Troubleshooting</h3>
+                            <p>From software updates to virus removal, our technicians can diagnose and fix a wide range of software-related issues.</p>
+                            <a href="#" class="btn btn-outline" data-page="pricing">View Pricing</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="iPad Repair">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-tablet-screen-button"></i>
+                            </div>
+                            <h3>iPad Repairs</h3>
+                            <p>Digitizer replacement, LED replacement, and other iPad repairs performed by certified technicians using quality parts.</p>
+                            <a href="#" class="btn btn-outline" data-page="contact">Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="MacBook Repair">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3>MacBook Repairs</h3>
+                            <p>Screen replacement, battery replacement, and other MacBook repairs performed by Apple-certified technicians.</p>
+                            <a href="#" class="btn btn-outline" data-page="contact">Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Console Repair">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3>Console Repairs</h3>
+                            <p>HDMI replacement, power button replacement, power supply replacement for all major gaming consoles.</p>
+                            <a href="#" class="btn btn-outline" data-page="contact">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Services Section -->
+        <section class="section" style="background-color: var(--light-gray);">
+            <div class="container">
+                <h2 class="section-title">Additional Services</h2>
+                <p class="section-subtitle">Beyond repairs, we offer a range of services to meet all your device needs.</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Device Reset">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-rotate"></i>
+                            </div>
+                            <h3>Device Reset Services</h3>
+                            <ul style="text-align: left; padding-left: 20px; color: var(--gray);">
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> All Apple Device iTunes Reset</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> All Android Device Reset</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Data Backup & Transfer</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Phone Activation">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-sim-card"></i>
+                            </div>
+                            <h3>Phone Service Activations</h3>
+                            <ul style="text-align: left; padding-left: 20px; color: var(--gray);">
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> T-Mobile</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Simple Mobile</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> AT&T</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Verizon</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> H2O</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Lycamobile</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Xfinity Prepaid ($45/month unlimited)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Accessories">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-headphones"></i>
+                            </div>
+                            <h3>Accessories We Carry</h3>
+                            <ul style="text-align: left; padding-left: 20px; color: var(--gray);">
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Screen Protectors (Regular & Privacy)</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Phone Cases (Regular & Defender)</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Charging Adapters & Cables</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Portable Chargers</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Speakers & Bluetooth Headphones</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> AirPods & Apple Watch Accessories</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Gaming Controllers & HDMI Cables</li>
+                                <li><i class="fas fa-check" style="color: var(--success); margin-right: 5px;"></i> Firesticks 4K & Electric Scooters</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Pricing Page -->
+    <section class="page" id="pricing-page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Repair Pricing</h2>
+                <p class="section-subtitle">Transparent pricing for all our repair services. All repairs come with a 90-day warranty.</p>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card slide-in-left" style="animation-delay: 0.1s;">
+                        <h3>Screen Replacement</h3>
+                        <div class="price">$79 <span>and up</span></div>
+                        <ul class="pricing-features">
+                            <li>iPhone 12/13: $79-$129</li>
+                            <li>iPhone X/11: $69-$119</li>
+                            <li>iPhone 6-8: $49-$89</li>
+                            <li>Samsung Galaxy: $89-$149</li>
+                            <li>Google Pixel: $79-$129</li>
+                            <li>iPad Screen: $149-$299</li>
+                            <li>MacBook Screen: $199-$499</li>
+                        </ul>
+                        <a href="#" class="btn" data-page="contact">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-card popular slide-in-left" style="animation-delay: 0.2s;">
+                        <div class="popular-tag">Most Popular</div>
+                        <h3>Battery Replacement</h3>
+                        <div class="price">$49 <span>and up</span></div>
+                        <ul class="pricing-features">
+                            <li>iPhone 12/13: $59</li>
+                            <li>iPhone X/11: $49</li>
+                            <li>iPhone 6-8: $39</li>
+                            <li>Samsung Galaxy: $49-$69</li>
+                            <li>Google Pixel: $49-$59</li>
+                            <li>iPad Battery: $99-$199</li>
+                            <li>MacBook Battery: $149-$299</li>
+                        </ul>
+                        <a href="#" class="btn btn-accent" data-page="contact">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-card slide-in-left" style="animation-delay: 0.3s;">
+                        <h3>Other Services</h3>
+                        <div class="price">$29 <span>and up</span></div>
+                        <ul class="pricing-features">
+                            <li>Charging Port: $29-$59</li>
+                            <li>Camera Repair: $49-$89</li>
+                            <li>Speaker Repair: $39-$69</li>
+                            <li>Water Damage: $69-$129</li>
+                            <li>Software Reset: $29-$49</li>
+                            <li>Console HDMI Port: $79</li>
+                            <li>Diagnostic: Free</li>
+                        </ul>
+                        <a href="#" class="btn" data-page="contact">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <p style="font-style: italic; color: var(--gray);">Prices may vary depending on device model and damage extent. Contact us for exact pricing.</p>
+                    <a href="#" class="btn btn-accent mt-3" data-page="contact">Get a Free Quote</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- About Page -->
+    <section class="page" id="about-page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">About Next Level Wireless</h2>
+                <p class="section-subtitle">Your trusted local device repair experts with years of experience and thousands of satisfied customers.</p>
+                
+                <div class="about-content">
+                    <div class="about-text slide-in-left">
+                        <h2>Your One-Stop Device Solution</h2>
+                        <p>At Next Level Wireless, we're passionate about providing top-quality device repair services with exceptional customer service. Our team of certified technicians has years of experience fixing all types of mobile devices, tablets, MacBooks, and gaming consoles.</p>
+                        <p>We use only premium quality parts that meet or exceed OEM standards, ensuring your device performs like new after our repairs. All our repairs come with a 90-day warranty for your peace of mind.</p>
+                        <p>Beyond repairs, we offer a wide selection of new and refurbished devices including iPhones, iPads, Android phones, AirPods, and Apple Watches. We also provide phone service activations for all major carriers and pay your phone bills.</p>
+                        <p>Our store also carries a comprehensive selection of accessories including screen protectors, phone cases, charging cables, portable chargers, speakers, gaming controllers, Bluetooth headphones, and much more.</p>
+                        <p>Whether you need a quick screen replacement or complex board-level repair, you can trust the experts at Next Level Wireless to get your device back in perfect working order.</p>
+                        <a href="#" class="btn mt-3" data-page="contact">Visit Our Shop</a>
+                    </div>
+                    <div class="about-img slide-in-right">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Repair Shop">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="section" style="background-color: var(--light-gray);">
+            <div class="container">
+                <h2 class="section-title">Our Expert Team</h2>
+                <p class="section-subtitle">Meet the skilled technicians who make your device repairs possible.</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Technician">
+                        </div>
+                        <div class="service-content">
+                            <h3>Alex Johnson</h3>
+                            <p style="color: var(--primary); font-weight: 500;">Lead Technician</p>
+                            <p>With over 8 years of experience in device repair, Alex specializes in complex board-level repairs and water damage restoration.</p>
+                            <div class="social-links" style="justify-content: center; margin-top: 15px;">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
                             </div>
                         </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>(267) 307-8893</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Technician">
+                        </div>
+                        <div class="service-content">
+                            <h3>Sarah Williams</h3>
+                            <p style="color: var(--primary); font-weight: 500;">Apple Certified Technician</p>
+                            <p>Sarah is our Apple specialist with certifications in iPhone, iPad, and MacBook repairs. She's been with us for 5 years.</p>
+                            <div class="social-links" style="justify-content: center; margin-top: 15px;">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
                             </div>
                         </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>nextlevelwireless1104@gmail.com</p>
-                            </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Technician">
                         </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Hours</h4>
-                                <p>Mon-Sat: 10am - 10pm<br>Sun: 11am - 9pm</p>
+                        <div class="service-content">
+                            <h3>Michael Chen</h3>
+                            <p style="color: var(--primary); font-weight: 500;">Android Specialist</p>
+                            <p>Michael handles all our Android device repairs and is particularly skilled with Samsung and Google Pixel devices.</p>
+                            <div class="social-links" style="justify-content: center; margin-top: 15px;">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Testimonials Page -->
+    <section class="page" id="testimonials-page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Customer Reviews</h2>
+                <p class="section-subtitle">Don't just take our word for it. Here's what our customers have to say about their experience.</p>
                 
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="quote">
+                            "I dropped my iPhone and shattered the screen. Next Level Wireless had it fixed in under an hour at a great price. The screen looks and works perfectly - you'd never know it was replaced!"
                         </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Your Phone">
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J.">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah J.</h4>
+                                <p>Google Review</p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Device Model">
+                    </div>
+                    
+                    <div class="testimonial-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="quote">
+                            "My Samsung's battery was draining crazy fast. These guys replaced it same day and now my phone lasts longer than when it was new! Super professional service and fair pricing."
                         </div>
-                        <div class="form-group">
-                            <textarea placeholder="Describe your repair needs"></textarea>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                        <button type="submit" class="btn btn-accent">Send Message</button>
-                    </form>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T.">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael T.</h4>
+                                <p>Yelp Review</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card fade-in" style="animation-delay: 0.3s;">
+                        <div class="quote">
+                            "After my phone took a swim in the pool, I thought it was done for. Next Level Wireless managed to save all my data and get it working again. Lifesavers! Will never go anywhere else."
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily R.">
+                            </div>
+                            <div class="author-info">
+                                <h4>Emily R.</h4>
+                                <p>Facebook Review</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card fade-in" style="animation-delay: 0.4s;">
+                        <div class="quote">
+                            "The HDMI port on my PS5 stopped working. These guys had it fixed same day at a fraction of what Sony wanted to charge me. Highly recommend for console repairs!"
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David K.">
+                            </div>
+                            <div class="author-info">
+                                <h4>David K.</h4>
+                                <p>Google Review</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card fade-in" style="animation-delay: 0.5s;">
+                        <div class="quote">
+                            "I needed my MacBook screen replaced urgently for work. They had the part in stock and completed the repair while I waited. Excellent service!"
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Jennifer L.">
+                            </div>
+                            <div class="author-info">
+                                <h4>Jennifer L.</h4>
+                                <p>Yelp Review</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card fade-in" style="animation-delay: 0.6s;">
+                        <div class="quote">
+                            "Not only did they fix my phone's charging port, but they also cleaned it and installed a screen protector for free. Customer service like this is rare these days."
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Robert M.">
+                            </div>
+                            <div class="author-info">
+                                <h4>Robert M.</h4>
+                                <p>Facebook Review</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+    </section>
+
+    <!-- Contact Page -->
+    <section class="page" id="contact-page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Have questions or need to book a repair? Reach out to us anytime.</p>
+                
+                <div class="contact-container">
+                    <div class="contact-info slide-in-left">
+                        <h3>Get in Touch</h3>
+                        <p>Have questions about our services or need to book a repair? Contact us using the form or visit our shop during business hours.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Location</h4>
+                                    <p>1104 Chestnut St STORE<br>Philadelphia, PA 19107</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Phone</h4>
+                                    <p>(267) 307-8893</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p>nextlevelwireless1104@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Hours</h4>
+                                    <p>Mon-Sat: 10am - 10pm<br>Sun: 11am - 9pm</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="map-container mt-4" style="border-radius: 10px; overflow: hidden; box-shadow: var(--shadow);">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.965459889402!2d-75.1577229242275!3d39.94958097153056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c62e0b4b01c9%3A0x1a5b1d1e3a3e3b1!2s1104%20Chestnut%20St%2C%20Philadelphia%2C%20PA%2019107!5e0!3m2!1sen!2sus!4v1681234567890!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form slide-in-right">
+                        <form id="repairForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="tel" id="phone" placeholder="Your Phone">
+                                </div>
+                                <div class="form-group">
+                                    <select id="deviceType" required>
+                                        <option value="">Device Type</option>
+                                        <option value="iPhone">iPhone</option>
+                                        <option value="Android">Android Phone</option>
+                                        <option value="iPad">iPad</option>
+                                        <option value="MacBook">MacBook</option>
+                                        <option value="Console">Gaming Console</option>
+                                        <option value="Other">Other Device</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" id="deviceModel" placeholder="Device Model (e.g., iPhone 13 Pro)">
+                            </div>
+                            
+                            <div class="form-group">
+                                <select id="serviceType" required>
+                                    <option value="">Service Needed</option>
+                                    <option value="Screen Repair">Screen Repair</option>
+                                    <option value="Battery Replacement">Battery Replacement</option>
+                                    <option value="Water Damage">Water Damage Repair</option>
+                                    <option value="Charging Port">Charging Port Repair</option>
+                                    <option value="Software Issue">Software Issue</option>
+                                    <option value="Other">Other Repair</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Describe your issue in detail"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-accent">Send Repair Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 
     <!-- Footer -->
@@ -950,24 +1795,24 @@
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="services">Services</a></li>
+                        <li><a href="#" data-page="pricing">Pricing</a></li>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="testimonials">Testimonials</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
                     <h3>Our Services</h3>
                     <ul>
-                        <li><a href="#">Screen Repair</a></li>
-                        <li><a href="#">Battery Replacement</a></li>
-                        <li><a href="#">Water Damage</a></li>
-                        <li><a href="#">iPad/MacBook Repair</a></li>
-                        <li><a href="#">Console Repair</a></li>
-                        <li><a href="#">Device Reset</a></li>
+                        <li><a href="#" data-page="services">Screen Repair</a></li>
+                        <li><a href="#" data-page="services">Battery Replacement</a></li>
+                        <li><a href="#" data-page="services">Water Damage</a></li>
+                        <li><a href="#" data-page="services">iPad/MacBook Repair</a></li>
+                        <li><a href="#" data-page="services">Console Repair</a></li>
+                        <li><a href="#" data-page="services">Device Reset</a></li>
                     </ul>
                 </div>
                 
@@ -978,7 +1823,6 @@
                         <li><i class="fas fa-phone-alt"></i> (267) 307-8893</li>
                         <li><i class="fas fa-envelope"></i> nextlevelwireless1104@gmail.com</li>
                         <li><i class="fas fa-clock"></i> Mon-Sat: 10am-10pm, Sun: 11am-9pm</li>
-                        <li><i class="fas fa-globe"></i> www.nextlevelwireless.com</li>
                     </ul>
                 </div>
             </div>
@@ -990,37 +1834,143 @@
     </footer>
 
     <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
+
         // Mobile Navigation
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
         });
         
         // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Page Navigation
+        const pages = document.querySelectorAll('.page');
+        const navLinksAll = document.querySelectorAll('.nav-link');
+        
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId.replace('-page', '')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Handle page navigation clicks
+        document.querySelectorAll('[data-page]').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
+                const pageId = this.getAttribute('data-page') + '-page';
+                showPage(pageId);
                 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
                 }
             });
         });
+        
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme preference or use system preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            
+            themeToggle.innerHTML = theme === 'dark' 
+                ? '<i class="fas fa-sun"></i>' 
+                : '<i class="fas fa-moon"></i>';
+        });
+        
+        // Form Submission
+        const repairForm = document.getElementById('repairForm');
+        if (repairForm) {
+            repairForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const deviceType = document.getElementById('deviceType').value;
+                const deviceModel = document.getElementById('deviceModel').value;
+                const serviceType = document.getElementById('serviceType').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send this data to a server
+                console.log('Repair Request Submitted:', {
+                    name,
+                    email,
+                    phone,
+                    deviceType,
+                    deviceModel,
+                    serviceType,
+                    message
+                });
+                
+                // Show success message
+                alert('Thank you for your repair request! We will contact you shortly to confirm your appointment.');
+                
+                // Reset form
+                repairForm.reset();
+            });
+        }
+        
+        // Animate elements when they come into view
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateX(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
