@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Calendly link widget -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <!-- Tidio Live Chat -->
-    <script src="//code.tidio.co/your-tidio-code.js" async></script>
     <style>
         :root {
             --primary: #4361ee;
@@ -1305,14 +1303,6 @@
             font-size: 1.2rem;
         }
     </style>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
 </head>
 <body>
     <!-- Loading Animation -->
@@ -1682,7 +1672,7 @@
                         <h3>Estimated Repair Cost</h3>
                         <div class="estimated-price">$<span id="estimatedPrice">0</span></div>
                         <p>This is an estimate. Final price may vary based on device condition.</p>
-                        <button class="calendly-btn mt-3" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});return false;">
+                        <button class="btn btn-accent mt-3" onclick="alert('Booking functionality would go here')">
                             <i class="fas fa-calendar-alt"></i> Book Appointment Now
                         </button>
                     </div>
@@ -1701,7 +1691,7 @@
                             <li>iPad Screen: $149-$299</li>
                             <li>MacBook Screen: $199-$499</li>
                         </ul>
-                        <button class="btn calendly-btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});return false;">
+                        <button class="btn btn-outline" onclick="alert('Booking functionality would go here')">
                             Book Now
                         </button>
                     </div>
@@ -1719,7 +1709,7 @@
                             <li>iPad Battery: $99-$199</li>
                             <li>MacBook Battery: $149-$299</li>
                         </ul>
-                        <button class="btn btn-accent calendly-btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});return false;">
+                        <button class="btn btn-accent" onclick="alert('Booking functionality would go here')">
                             Book Now
                         </button>
                     </div>
@@ -1736,7 +1726,7 @@
                             <li>Console HDMI Port: $79</li>
                             <li>Diagnostic: Free</li>
                         </ul>
-                        <button class="btn calendly-btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});return false;">
+                        <button class="btn btn-outline" onclick="alert('Booking functionality would go here')">
                             Book Now
                         </button>
                     </div>
@@ -1744,7 +1734,7 @@
                 
                 <div class="text-center mt-5">
                     <p style="font-style: italic; color: var(--gray);">Prices may vary depending on device model and damage extent. Contact us for exact pricing.</p>
-                    <button class="btn btn-accent mt-3 calendly-btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});return false;">
+                    <button class="btn btn-accent mt-3" onclick="alert('Quote request functionality would go here')">
                         Get a Free Quote
                     </button>
                 </div>
@@ -1767,7 +1757,7 @@
                         <p>Beyond repairs, we offer a wide selection of new and refurbished devices including iPhones, iPads, Android phones, AirPods, and Apple Watches. We also provide phone service activations for all major carriers and pay your phone bills.</p>
                         <p>Our store also carries a comprehensive selection of accessories including screen protectors, phone cases, charging cables, portable chargers, speakers, gaming controllers, Bluetooth headphones, and much more.</p>
                         <p>Whether you need a quick screen replacement or complex board-level repair, you can trust the experts at Next Level Wireless to get your device back in perfect working order.</p>
-                        <button class="btn mt-3 calendly-btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});return false;">
+                        <button class="btn mt-3" onclick="alert('Visit shop functionality would go here')">
                             Visit Our Shop
                         </button>
                     </div>
@@ -2410,7 +2400,7 @@
                     deviceModelSelect.disabled = !deviceType;
                     
                     if (deviceType) {
-                        const models = Object.keys(priceCalculator.prices[deviceType]['Screen Repair'] || ['Standard'];
+                        const models = Object.keys(priceCalculator.prices[deviceType]['Screen Repair'] || {});
                         models.forEach(model => {
                             const option = document.createElement('option');
                             option.value = model;
