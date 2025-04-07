@@ -246,9 +246,27 @@
         #main-header.scrolled { box-shadow: var(--shadow-md); padding: 0px 0; } /* Reduced padding on scroll */
         .navbar { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.7rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; letter-spacing: -0.5px; }
-        .logo img { height: 40px; margin-right: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); transition: transform var(--transition-med); }
-        .logo:hover img { transform: rotate(-5deg) scale(1.05); }
-        .logo span { color: var(--accent); }
+        .logo img { display: none; } /* Hide image if it was somehow still there */
+        .logo {
+            font-size: 1.8rem; /* Slightly larger */
+            font-weight: 800;
+            color: var(--primary);
+            display: inline-block; /* Changed from flex */
+            letter-spacing: -0.5px;
+            padding: 10px 0; /* Add some padding */
+            transition: color var(--transition-fast);
+        }
+        .logo:hover {
+            color: var(--primary-dark);
+        }
+        .logo .logo-accent { /* Style the span inside the logo link */
+            color: var(--accent);
+            font-weight: 800; /* Ensure it matches */
+        }
+        .dark-mode .logo { color: var(--primary-light); }
+        .dark-mode .logo:hover { color: var(--white); }
+        .dark-mode .logo .logo-accent { color: var(--accent-light); }
+
 
         .nav-links { display: flex; align-items: center; }
         .nav-links li { margin-left: 45px; position: relative; }
@@ -752,8 +770,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#home-page" class="logo animate-on-scroll animate-fade-in navigate-page" data-page="home">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjNDM2MWVlIiBkPSJNNDY0IDI1NkEyMDggMjA4IDAgMSAxIDQ4IDI1NkEyMDggMjA4IDAgMSAxIDQ2NCAyNTZ6TTAgMjU2QTI1NiAyNTYgMCAxIDAgNTEyIDI1NkEyNTYgMjU2IDwgMSAwIDAgMjU2em0yNzAuNiA5My4zYy0xMC4yIDExLjgtMjUuMyAxOC43LTQxLjUgMTguN0gyMTYuMWMtMjYuNSAwLTQ4LTIxLjUtNDgtNDhWMjQwYzAtMjYuNSAyMS41LTQ4IDQ4LTQ4aDEyLjljMTYuMiAwIDMxLjMgNi45IDQxLjUgMTguN2wxOS4xIDIxLjhjNi4xIDcgOS41IDE2LjEgOS41IDI1LjRzLTMuNCAxOC40LTkuNSAyNS40bC0xOS4xIDIxLjh6Ii8+PC9zdmc+" alt="Next Level Wireless Logo">
-                    Next <span>Level</span> Wireless
+                   Next <span class="logo-accent">Level</span> Wireless
                 </a>
                 <!-- Desktop Navigation -->
                 <ul class="nav-links">
@@ -803,7 +820,7 @@
                 </div>
                 <div class="container">
                     <div class="hero-content">
-                        <h1>Elite Device Repair <br>Philadelphia</h1>
+                        <h1 style="color: white;">Elite Device Repair <br>Philadelphia</h1>
                         <p>Experience unparalleled speed & quality. We fix smartphones, tablets, MacBooks, consoles & more, often while you wait. Backed by our solid warranty.</p>
                         <div class="hero-btns">
                             <a href="#contact-page" class="btn btn-accent navigate-page" data-page="contact"><i class="fas fa-calendar-check"></i> Book Your Repair</a>
@@ -1248,7 +1265,6 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">
-                    <h3>Next Level Wireless</h3>
                     <p>Philadelphia's premier destination for expert device repair. We combine speed, quality parts, and skilled technicians to deliver reliable solutions for all your tech needs.</p>
                     <div class="footer-social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -1290,7 +1306,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; <span id="currentYear"></span> Next Level Wireless. Crafted with ❤️ in Philadelphia.</p>
+                <p>&copy; <span id="currentYear"></span> Crafted with ❤️ in Philadelphia.</p>
             </div>
         </div>
     </footer>
