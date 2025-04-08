@@ -14,3 +14,2278 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
     <!-- Calendly link widget CSS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <style>
+        /*--------------------------------------------------------------
+        # CSS Variables & Theme Setup - Refined Palette
+        --------------------------------------------------------------*/
+        :root {
+            --primary-hue: 225; /* Slightly shifted blue */
+            --accent-hue: 335;   /* Slightly softer pink */
+            --secondary-hue: 240; /* Deeper complementary blue/purple */
+
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Cormorant Garamond', serif; /* Elegant Serif for Headings */
+
+            --primary: hsl(var(--primary-hue), 75%, 58%); /* #4a69e4 */
+            --primary-light: hsl(var(--primary-hue), 78%, 68%);
+            --primary-dark: hsl(var(--primary-hue), 70%, 50%);
+            --primary-glow: hsla(var(--primary-hue), 75%, 60%, 0.3);
+
+            --secondary: hsl(var(--secondary-hue), 65%, 60%); /* #6a6aff */
+            --secondary-dark: hsl(var(--secondary-hue), 60%, 50%);
+
+            --accent: hsl(var(--accent-hue), 85%, 60%); /* #f04a98 */
+            --accent-light: hsl(var(--accent-hue), 88%, 70%);
+            --accent-dark: hsl(var(--accent-hue), 80%, 52%);
+            --accent-glow: hsla(var(--accent-hue), 85%, 65%, 0.3);
+
+            --success: #2ecc71; /* Consistent success green */
+            --warning: #f39c12; /* Consistent warning orange */
+            --danger: #e74c3c;  /* Consistent danger red */
+
+            --white: #ffffff;
+            --off-white: #fdfdff; /* Slightly cooler off-white */
+            --light-gray: #f1f3f8; /* Softer light gray */
+            --gray: #aab1c0;      /* Muted gray */
+            --medium-gray: #6c7a90; /* Added for softer text */
+            --dark-gray: #414a5c;   /* Refined dark gray */
+            --dark: #1f2433;     /* Slightly softer dark */
+            --darker: #151822;   /* Deeper dark */
+            --black: #000000;
+
+            /* Semantic Colors */
+            --bg: var(--off-white);
+            --text: var(--medium-gray);
+            --text-heading: var(--dark);
+            --text-muted: var(--gray);
+            --card-bg: var(--white);
+            --nav-bg: rgba(253, 253, 255, 0.88); /* Slightly more opaque */
+            --nav-text: var(--dark-gray);
+            --border-color: hsl(220, 25%, 90%); /* Softer border */
+            --input-bg: var(--white);
+            --input-border: hsl(220, 25%, 88%);
+            --input-text: var(--dark-gray);
+            --input-label: var(--gray);
+            --input-focus-border: var(--primary);
+            --input-focus-glow: var(--primary-glow);
+            --footer-bg: var(--dark);
+            --footer-text: var(--gray);
+            --footer-heading: var(--off-white);
+
+            /* Design Elements */
+            --shadow-xs: 0 2px 10px rgba(65, 74, 92, 0.05); /* Softer shadows */
+            --shadow-sm: 0 5px 18px rgba(65, 74, 92, 0.07);
+            --shadow-md: 0 10px 30px rgba(65, 74, 92, 0.1);
+            --shadow-lg: 0 18px 50px rgba(65, 74, 92, 0.13);
+            --shadow-inset: inset 0 1px 3px rgba(65, 74, 92, 0.06);
+            --border-radius-sm: 6px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 14px;
+            --section-padding: clamp(90px, 12vw, 160px); /* Increased padding */
+            --transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-med: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark-mode {
+            --primary: hsl(var(--primary-hue), 70%, 70%);
+            --primary-light: hsl(var(--primary-hue), 75%, 80%);
+            --primary-dark: hsl(var(--primary-hue), 65%, 62%);
+            --primary-glow: hsla(var(--primary-hue), 70%, 75%, 0.25);
+
+            --secondary: hsl(var(--secondary-hue), 60%, 70%);
+            --secondary-dark: hsl(var(--secondary-hue), 55%, 60%);
+
+            --accent: hsl(var(--accent-hue), 80%, 72%);
+            --accent-light: hsl(var(--accent-hue), 85%, 82%);
+            --accent-dark: hsl(var(--accent-hue), 75%, 65%);
+            --accent-glow: hsla(var(--accent-hue), 80%, 75%, 0.25);
+
+            /* Semantic Colors */
+            --bg: var(--darker); /* #151822 */
+            --text: var(--gray); /* #aab1c0 */
+            --text-heading: var(--off-white); /* #fdfdff */
+            --text-muted: hsl(220, 15%, 65%); /* Brighter muted text */
+            --card-bg: var(--dark); /* #1f2433 */
+            --nav-bg: rgba(21, 24, 34, 0.88); /* Darker nav bg */
+            --nav-text: var(--off-white);
+            --border-color: hsl(225, 15%, 28%); /* Dark border */
+            --input-bg: var(--darker);
+            --input-border: hsl(225, 15%, 35%);
+            --input-text: var(--gray);
+            --input-label: hsl(220, 15%, 65%);
+            --input-focus-border: var(--primary);
+            --input-focus-glow: var(--primary-glow);
+            --footer-bg: var(--darker);
+            --footer-text: var(--text-muted);
+            --footer-heading: var(--off-white);
+
+             /* Design Elements */
+            --shadow-xs: 0 2px 10px rgba(0, 0, 0, 0.18);
+            --shadow-sm: 0 5px 18px rgba(0, 0, 0, 0.22);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.28);
+            --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.35);
+            --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        /*--------------------------------------------------------------
+        # Base & Reset Styles - Refined Typography
+        --------------------------------------------------------------*/
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; text-rendering: optimizeLegibility; }
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.75; /* Increased for readability */
+            color: var(--text);
+            background-color: var(--bg);
+            transition: background-color var(--transition-med), color var(--transition-med);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        ::selection { background-color: var(--primary); color: var(--white); }
+        a { text-decoration: none; color: var(--primary); transition: color var(--transition-fast); }
+        a:hover { color: var(--accent); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; border-radius: var(--border-radius-sm); } /* Subtle radius */
+        h1, h2, h3, h4 { font-family: var(--font-secondary); color: var(--text-heading); font-weight: 700; line-height: 1.25; margin-bottom: 0.8em; }
+        h1 { font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; letter-spacing: -1.5px; }
+        h2 { font-size: clamp(2.4rem, 4.8vw, 3.5rem); font-weight: 700; letter-spacing: -1px;}
+        h3 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 600;}
+        h4 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); font-weight: 600;}
+        p { margin-bottom: 1.5rem; max-width: 68ch; color: var(--text); }
+        p:last-child { margin-bottom: 0; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+        /*--------------------------------------------------------------
+        # Utilities & Layout - More Whitespace
+        --------------------------------------------------------------*/
+        .container { width: 100%; max-width: 1360px; /* Slightly wider */ margin: 0 auto; padding: 0 40px; }
+        .section { padding: var(--section-padding) 0; position: relative; overflow: hidden; }
+        .section-title { text-align: center; margin-bottom: 1.8rem; }
+        .section-title::after { /* More subtle divider */
+             content: ''; display: block; width: 60px; height: 3px;
+             background: linear-gradient(90deg, var(--primary-light), var(--accent));
+             margin: 30px auto 40px; border-radius: 1.5px; opacity: 0.8;
+        }
+        .section-subtitle { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-muted); text-align: center; max-width: 780px; margin: -1.5rem auto 90px; line-height: 1.9; }
+        .text-center { text-align: center; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+        .mt-1 { margin-top: 0.5rem; } .mt-2 { margin-top: 1rem; } .mt-3 { margin-top: 2rem; } .mt-4 { margin-top: 3rem; } .mt-5 { margin-top: 5rem; }
+        .mb-1 { margin-bottom: 0.5rem; } .mb-2 { margin-bottom: 1rem; } .mb-3 { margin-bottom: 2rem; } .mb-4 { margin-bottom: 3rem; } .mb-5 { margin-bottom: 5rem; }
+        .grid { display: grid; gap: 40px; } /* Increased gap */
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); } /* Increased min width */
+
+        /* Background Effects - Subtler Aurora */
+        .aurora-bg { position: relative; }
+        .aurora-bg::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 15% 25%, hsla(var(--primary-hue), 75%, 75%, 0.08), transparent 60%),
+                        radial-gradient(circle at 85% 75%, hsla(var(--accent-hue), 85%, 80%, 0.08), transparent 60%);
+            filter: blur(100px); opacity: 0.7; z-index: -1; pointer-events: none;
+             animation: aurora-flow 30s linear infinite alternate;
+        }
+        .dark-mode .aurora-bg::before {
+             background: radial-gradient(circle at 15% 25%, hsla(var(--primary-hue), 75%, 65%, 0.12), transparent 65%),
+                        radial-gradient(circle at 85% 75%, hsla(var(--accent-hue), 85%, 70%, 0.12), transparent 65%);
+             filter: blur(120px); opacity: 0.6;
+        }
+        @keyframes aurora-flow { /* Smoother animation */
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            50% { transform: translate(15px, 25px) rotate(3deg) scale(1.05); }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        }
+
+        /*--------------------------------------------------------------
+        # Buttons - Refined Style
+        --------------------------------------------------------------*/
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            padding: 16px 45px; /* Balanced padding */
+            border-radius: 50px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1.4px; font-size: 0.9rem;
+            background: linear-gradient(130deg, var(--primary), var(--secondary));
+            color: var(--white);
+            box-shadow: 0 6px 25px hsla(var(--primary-hue), 70%, 60%, 0.25);
+            transition: var(--transition-med);
+            position: relative; overflow: hidden; z-index: 1; border: none;
+        }
+        .btn i { transition: transform var(--transition-med); margin-left: 3px; }
+        .btn::before { /* Subtle shine effect */
+             content: ''; position: absolute; top: 0; left: -80%; width: 50%; height: 100%;
+             background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+             transform: skewX(-25deg); transition: left var(--transition-slow);
+         }
+        .btn:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 12px 35px hsla(var(--primary-hue), 70%, 60%, 0.35);
+        }
+        .btn:hover::before { left: 120%; }
+        .btn:hover i { transform: translateX(5px) rotate(8deg); }
+        .btn:active { transform: translateY(-2px) scale(1); box-shadow: 0 5px 15px hsla(var(--primary-hue), 70%, 60%, 0.3); }
+
+        .btn-accent {
+            background: linear-gradient(130deg, var(--accent), var(--accent-dark));
+            box-shadow: 0 6px 25px hsla(var(--accent-hue), 80%, 65%, 0.25);
+        }
+        .btn-accent:hover { box-shadow: 0 12px 35px hsla(var(--accent-hue), 80%, 65%, 0.35); }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+            padding: 14px 43px; /* Adjust padding for border */
+             background-image: linear-gradient(to right, var(--primary) 50%, transparent 50%);
+             background-size: 200% 100%;
+             background-position: right bottom;
+        }
+        .btn-outline:hover {
+            background-position: left bottom;
+            color: var(--white);
+            box-shadow: 0 8px 25px hsla(var(--primary-hue), 70%, 60%, 0.15);
+             border-color: var(--primary); /* Keep border color consistent */
+        }
+        .dark-mode .btn-outline { border-color: var(--primary); color: var(--primary); }
+        .dark-mode .btn-outline:hover { background-position: left bottom; color: var(--dark); } /* Text color changes */
+
+        /*--------------------------------------------------------------
+        # Header & Navigation - SVG Logo & Refined Style
+        --------------------------------------------------------------*/
+        #main-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+            box-shadow: none; /* Initially no shadow */
+            border-bottom: 1px solid transparent; /* Prepare for subtle border */
+            transition: background-color var(--transition-med), box-shadow var(--transition-med), padding var(--transition-med), border-color var(--transition-med);
+            padding: 10px 0; /* Slightly more initial padding */
+        }
+        #main-header.scrolled {
+             box-shadow: var(--shadow-sm);
+             padding: 5px 0;
+             border-bottom: 1px solid var(--border-color);
+        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+
+        /* SVG Logo Styling */
+        .logo { display: inline-block; transition: transform var(--transition-fast); }
+        .logo:hover { transform: scale(1.03); }
+        .logo svg {
+            height: 45px; /* Adjust size as needed */
+            width: auto;
+            display: block;
+        }
+        .logo svg .logo-main-text {
+            font-family: var(--font-secondary); /* Elegant serif */
+            font-size: 30px;
+            font-weight: 700;
+            fill: var(--primary); /* Use primary color */
+            transition: fill var(--transition-fast);
+        }
+        .logo svg .logo-accent-text {
+            font-family: var(--font-secondary); /* Match serif */
+            font-size: 30px;
+            font-weight: 700;
+            fill: var(--accent); /* Use accent color */
+            transition: fill var(--transition-fast);
+        }
+        .dark-mode .logo svg .logo-main-text { fill: var(--primary-light); }
+        .dark-mode .logo svg .logo-accent-text { fill: var(--accent-light); }
+
+
+        .nav-links { display: flex; align-items: center; }
+        .nav-links li { margin-left: 50px; position: relative; }
+        .nav-links a {
+            color: var(--nav-text); font-weight: 500; font-size: 1rem; position: relative; padding: 20px 0;
+            display: inline-block;
+        }
+        .nav-links a::after { /* Underline effect */
+            content: ''; position: absolute; bottom: 15px; left: 0; width: 0; height: 2px;
+            background: var(--accent); border-radius: 1px;
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+        .nav-btns { display: flex; align-items: center; margin-left: 35px; }
+        .theme-toggle {
+            color: var(--nav-text); font-size: 1.3rem; margin-left: 25px; padding: 12px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; transition: var(--transition-med);
+        }
+        .theme-toggle:hover { color: var(--accent); transform: rotate(35deg) scale(1.18); background: hsla(0, 0%, 50%, 0.08); }
+        .hamburger {
+            display: none; color: var(--nav-text); font-size: 1.7rem; padding: 12px; border-radius: var(--border-radius-md);
+            transition: var(--transition-med); z-index: 1001; margin-left: 10px;
+        }
+        .hamburger:hover { background: hsla(0, 0%, 50%, 0.08); color: var(--accent); }
+
+         /* Mobile Menu Styles - Refined */
+        .nav-links-mobile {
+            position: fixed; top: 0; left: -110%; width: 80%; max-width: 360px; height: 100vh;
+            background: var(--card-bg); box-shadow: var(--shadow-lg);
+            flex-direction: column; align-items: flex-start;
+            padding: 140px 45px 45px;
+            transition: left 0.65s cubic-bezier(0.65, 0, 0.35, 1); /* Smoother ease */
+            z-index: 1000; display: flex;
+            border-right: 1px solid var(--border-color);
+        }
+        .nav-links-mobile.active { left: 0; }
+        .nav-links-mobile li { margin: 0 0 35px 0; width: 100%; }
+        .nav-links-mobile a {
+            font-size: 1.25rem; font-weight: 500; color: var(--text-heading); display: block; padding: 10px 0;
+            transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+        .nav-links-mobile a:hover, .nav-links-mobile a.active { color: var(--primary); transform: translateX(8px); }
+        .nav-links-mobile a::after { display: none; } /* No underline needed */
+
+        /*--------------------------------------------------------------
+        # Hero Section - Enhanced Visuals
+        --------------------------------------------------------------*/
+        .hero {
+            min-height: 100vh; height: 100vh; display: flex; align-items: center;
+            position: relative; overflow: hidden; color: var(--white); padding-top: 100px; /* Increased padding */
+        }
+        .hero-background-container {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0;
+            background: linear-gradient(170deg, hsl(var(--primary-hue), 60%, 30%) 0%, hsl(var(--secondary-hue), 65%, 25%) 100%);
+             overflow: hidden;
+        }
+         /* Animated Gradient Overlay - Subtler */
+        .hero-background-container::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;
+            background: linear-gradient(170deg, hsla(var(--primary-hue), 60%, 35%, 0.8) 0%, hsla(var(--secondary-hue), 65%, 30%, 0.9) 100%);
+            background-size: 200% 200%; animation: gradientBG 20s ease infinite; opacity: 0.9;
+        }
+         @keyframes gradientBG { /* Smoother gradient flow */
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+         /* Background Image - Softer */
+        .hero-bg-image {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0; opacity: 0.05; /* Even more subtle */
+            filter: grayscale(80%) contrast(120%) brightness(1.1);
+            transform: scale(1.15); animation: slowPan 60s linear infinite alternate;
+        }
+         @keyframes slowPan { from { transform: scale(1.15) translateX(-4%); } to { transform: scale(1.25) translateX(4%); } }
+
+        /* Hero Particle Canvas - Subtle */
+        #hero-particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; opacity: 0.4; }
+        .dark-mode #hero-particles { opacity: 0.3; }
+
+        .hero .container { position: relative; z-index: 3; }
+        .hero-content { max-width: 950px; margin: 0 auto; text-align: center; }
+        .hero h1 {
+            font-family: var(--font-secondary); /* Use serif */
+            font-weight: 700; margin-bottom: 2rem; line-height: 1.2;
+            text-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0; transform: translateY(60px) scale(0.98);
+            animation: heroFadeUp 1.3s 0.5s forwards cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .hero p {
+            font-size: clamp(1.15rem, 2.5vw, 1.6rem); margin-bottom: 4rem;
+            opacity: 0; transform: translateY(60px);
+            max-width: 720px; margin-left: auto; margin-right: auto;
+            animation: heroFadeUp 1.3s 0.7s forwards cubic-bezier(0.19, 1, 0.22, 1);
+            color: hsla(0, 0%, 100%, 0.9); line-height: 1.85;
+        }
+        .hero-btns {
+            display: flex; justify-content: center; gap: 35px;
+            opacity: 0; transform: translateY(60px);
+            animation: heroFadeUp 1.3s 0.9s forwards cubic-bezier(0.19, 1, 0.22, 1);
+        }
+         @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0) scale(1); } }
+
+        .hero .btn { padding: 20px 55px; font-size: 1rem; }
+        .hero .btn-outline { /* Enhanced outline button */
+            border-color: hsla(0, 0%, 100%, 0.7); color: var(--white);
+            background: hsla(0, 0%, 100%, 0.08); backdrop-filter: blur(10px);
+            transition: background-color var(--transition-med), border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med);
+            background-image: linear-gradient(to right, hsla(0, 0%, 100%, 0.2) 50%, transparent 50%);
+            background-size: 200% 100%; background-position: right bottom;
+        }
+        .hero .btn-outline:hover {
+            background-position: left bottom;
+            border-color: var(--white);
+            color: var(--white); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.18);
+            transform: translateY(-6px) scale(1.03);
+        }
+        .scroll-down {
+            position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); color: hsla(0, 0%, 100%, 0.6);
+            font-size: 2.2rem; animation: bounce 3s infinite ease-in-out; cursor: pointer;
+            transition: var(--transition-fast); z-index: 4; opacity: 0.7;
+        }
+        .scroll-down:hover { color: var(--white); opacity: 1; transform: translateX(-50%) scale(1.2); animation-play-state: paused; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0) translateX(-50%); opacity: 0.7; } 50% { transform: translateY(-20px) translateX(-50%); opacity: 1; } }
+
+        /*--------------------------------------------------------------
+        # Service Card Styling - Refined & Elegant
+        --------------------------------------------------------------*/
+        .service-card {
+            background: var(--card-bg); border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm); transition: var(--transition-med); position: relative;
+            overflow: hidden; border: 1px solid var(--border-color);
+        }
+        .service-card:hover {
+            transform: translateY(-12px); /* Slightly less lift */
+            box-shadow: var(--shadow-md);
+            border-color: hsla(var(--primary-hue), 75%, 60%, 0.5);
+        }
+        .service-img { height: 250px; overflow: hidden; position: relative; }
+        .service-img::after { /* Softer gradient overlay */
+             content: ''; position: absolute; inset: 0;
+             background: linear-gradient(to top, hsla(var(--dark-hue, 230), 15%, 10%, 0.6), transparent 70%);
+             opacity: 0.8; transition: opacity var(--transition-med); pointer-events: none;
+         }
+        .dark-mode .service-img::after { background: linear-gradient(to top, hsla(var(--dark-hue, 230), 15%, 5%, 0.7), transparent 70%); }
+        .service-card:hover .service-img::after { opacity: 0.5; }
+        .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .service-card:hover .service-img img { transform: scale(1.1); }
+
+        .service-content { padding: 40px; position: relative; z-index: 2; padding-top: 70px; /* More space for icon */ }
+        .service-content h3 { margin-bottom: 18px; color: var(--primary); font-weight: 700; }
+        .service-content p { color: var(--text-muted); margin-bottom: 30px; line-height: 1.8; font-size: 0.95rem;}
+
+        .service-icon { /* More integrated icon */
+            width: 75px; height: 75px;
+            background: linear-gradient(140deg, var(--primary-light), var(--secondary));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-size: 2.2rem;
+            box-shadow: 0 12px 28px hsla(var(--primary-hue), 70%, 60%, 0.3);
+            transition: var(--transition-med); position: absolute; top: -38px; left: 40px;
+            border: 5px solid var(--card-bg); z-index: 3;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.12) rotate(-10deg) translateY(-3px);
+            box-shadow: 0 16px 35px hsla(var(--primary-hue), 70%, 60%, 0.4);
+        }
+
+        /*--------------------------------------------------------------
+        # Pricing Card Styling - Premium Look
+        --------------------------------------------------------------*/
+        .pricing-grid { align-items: stretch; gap: 40px; } /* Stretch to equal height */
+        .pricing-card {
+            background: var(--card-bg); border-radius: var(--border-radius-lg);
+            padding: 55px 45px; box-shadow: var(--shadow-sm); text-align: center;
+            transition: var(--transition-med); position: relative; overflow: hidden; z-index: 1;
+            border: 1px solid var(--border-color); display: flex; flex-direction: column; /* Equal height content */
+        }
+        .pricing-card:hover {
+             transform: translateY(-12px); box-shadow: var(--shadow-md);
+             border: 1px solid hsla(var(--primary-hue), 75%, 60%, 0.5);
+        }
+        .pricing-card.popular {
+            border: 2px solid var(--primary); transform: scale(1.03); z-index: 2;
+            box-shadow: var(--shadow-md); /* Slightly stronger initial shadow */
+            background: linear-gradient(180deg, var(--card-bg) 95%, hsla(var(--primary-hue), 75%, 85%, 0.15)); /* Subtle gradient bg */
+        }
+         .dark-mode .pricing-card.popular {
+              background: linear-gradient(180deg, var(--card-bg) 95%, hsla(var(--primary-hue), 75%, 60%, 0.1));
+         }
+        .pricing-card.popular:hover {
+             transform: translateY(-15px) scale(1.05); box-shadow: var(--shadow-lg);
+             border: 2px solid var(--primary-light);
+        }
+        .popular-tag { /* More stylish tag */
+            position: absolute; top: 15px; right: 15px; background: var(--accent); color: white;
+            padding: 6px 14px; font-size: 0.75rem; font-weight: 700; border-radius: 50px; z-index: 3;
+            box-shadow: 0 3px 8px hsla(var(--accent-hue), 80%, 65%, 0.3); text-transform: uppercase; letter-spacing: 0.8px;
+            transform: none; /* Removed rotation */
+        }
+        .pricing-card h3 { font-weight: 700; margin-bottom: 18px; color: var(--text-heading); }
+        .price {
+            font-family: var(--font-primary); /* Use primary font for price */
+            font-size: clamp(3.2rem, 8vw, 4.2rem); font-weight: 700; color: var(--primary);
+            margin: 35px 0; display: flex; align-items: baseline; justify-content: center;
+        }
+        .price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); margin-left: 8px; }
+        .price sup { font-size: 1.8rem; font-weight: 600; position: relative; top: -1.2rem; margin-right: 4px;} /* Dollar sign style */
+        .pricing-features { margin-bottom: 45px; text-align: left; padding-left: 10px; flex-grow: 1; }
+        .pricing-features li {
+            padding: 16px 0; border-bottom: 1px solid var(--border-color); color: var(--text);
+            transition: var(--transition-fast); position: relative; padding-left: 35px; font-size: 0.98rem;
+        }
+        .pricing-features li::before { /* Checkmark styling */
+             content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--primary);
+             position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 1.05rem;
+             transition: transform var(--transition-fast);
+        }
+        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-features li:hover { color: var(--primary); }
+        .pricing-features li:hover::before { transform: translateY(-50%) scale(1.15) rotate(5deg); color: var(--accent);}
+        .pricing-card .btn { margin-top: auto; /* Push button to bottom */ }
+
+        /*--------------------------------------------------------------
+        # Form Styling - Cleaner Floating Labels
+        --------------------------------------------------------------*/
+        .form-group { position: relative; margin-bottom: 35px; }
+        .form-control {
+            width: 100%; padding: 22px 18px 8px; /* Adjust padding for label float */
+            border: 1px solid var(--input-border); border-radius: var(--border-radius-md);
+            font-size: 1rem; background: var(--input-bg); color: var(--input-text);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+            box-shadow: none; /* Remove inset shadow */
+            appearance: none; -webkit-appearance: none;
+        }
+        .form-control:focus {
+            outline: none; border-color: var(--input-focus-border);
+            box-shadow: 0 0 0 3px var(--input-focus-glow);
+        }
+         /* Style select arrow - Subtle SVG */
+        select.form-control {
+             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23aab1c0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+             background-repeat: no-repeat; background-position: right 1rem center; background-size: 1rem;
+             padding-right: 3rem; /* Space for arrow */
+        }
+         .dark-mode select.form-control {
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23aab1c0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+         }
+
+        textarea.form-control { height: 160px; resize: vertical; padding-top: 22px;}
+
+        .form-label {
+            position: absolute; top: 15px; left: 18px;
+            color: var(--input-label); font-size: 1rem; pointer-events: none;
+            transition: top 0.2s ease-out, font-size 0.2s ease-out, color 0.2s ease-out;
+            background-color: var(--input-bg); /* Cover input border when floated */
+            padding: 0 5px;
+        }
+
+        /* Floating label effect - Smoother */
+        .form-control:focus + .form-label,
+        .form-control:not(:placeholder-shown) + .form-label,
+         select.form-control:valid + .form-label { /* Keep select label up when valid */
+            top: -10px; /* Adjust vertical position */
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+         /* Adjustments for Select Placeholders */
+         select.form-control:required:invalid + .form-label { /* Keep label normal if invalid */
+             top: 15px; font-size: 1rem; color: var(--input-label);
+         }
+
+
+        .form-message { margin-top: 10px; font-size: 0.88rem; display: none; font-weight: 500; padding-left: 8px;}
+        .form-message.error { color: var(--danger); display: block; }
+        .form-message.success {
+            color: var(--success); display: block; margin-top: 18px; padding: 18px 20px;
+            background: hsla(var(--success), 70%, 50%, 0.06);
+            border: 1px solid hsla(var(--success), 70%, 50%, 0.2);
+            border-radius: var(--border-radius-md);
+        }
+        .dark-mode .form-message.success { background: hsla(var(--success), 70%, 70%, 0.1); border-color: hsla(var(--success), 70%, 70%, 0.3); }
+        input:invalid, textarea:invalid, select:required:invalid { border-color: var(--danger); } /* Style invalid state */
+
+        /*--------------------------------------------------------------
+        # Other Sections Styling (About, Team, Testimonials, Contact, Tracker, Footer) - Refined
+        --------------------------------------------------------------*/
+
+        /* About Section */
+        .about-content { gap: 90px; align-items: center; }
+        .about-img { border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); position: relative; }
+        .about-img::after { content:''; position: absolute; inset: 0; background: linear-gradient(140deg, hsla(var(--primary-hue), 75%, 58%, 0.08), transparent 65%);}
+        .about-text h2 { color: var(--primary); margin-bottom: 30px; }
+        .about-text p { color: var(--text); line-height: 1.9; font-size: 1.05rem; } /* Slightly larger body text */
+        .about-stats { gap: 40px; margin-top: 70px; }
+        .stat-item {
+            text-align: center; padding: 35px; background: var(--card-bg); border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-xs); transition: var(--transition-med); border: 1px solid var(--border-color);
+            border-top: 6px solid var(--primary);
+        }
+        .stat-item:hover { transform: translateY(-10px) scale(1.02); box-shadow: var(--shadow-sm); border-top-color: var(--accent); }
+        .stat-number { font-family: var(--font-primary); font-size: clamp(2.8rem, 6vw, 3.8rem); font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .stat-label { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.8px; font-weight: 500; }
+
+        /* Team Section */
+        .team-card { text-align: center; background: var(--card-bg); padding: 40px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm); transition: var(--transition-med); border: 1px solid var(--border-color); }
+        .team-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); border-color: hsla(var(--primary-hue), 75%, 60%, 0.5); }
+        .team-img { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 30px; overflow: hidden; border: 6px solid var(--primary); box-shadow: 0 8px 20px hsla(var(--primary-hue), 70%, 60%, 0.15); transition: transform var(--transition-med); }
+        .team-card:hover .team-img { transform: scale(1.05); }
+        .team-img img { width: 100%; height: 100%; object-fit: cover; }
+        .team-card h3 { font-size: 1.6rem; margin-bottom: 8px; font-family: var(--font-secondary); }
+        .team-title { color: var(--primary); font-weight: 600; margin-bottom: 18px; display: block; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
+        .team-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px; }
+        .social-links { display: flex; justify-content: center; gap: 18px; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: var(--light-gray); border-radius: 50%; color: var(--text-muted); font-size: 1rem; transition: var(--transition-med); }
+        .social-links a:hover { background: var(--primary); color: var(--white); transform: scale(1.1) translateY(-3px); box-shadow: 0 4px 10px hsla(var(--primary-hue), 70%, 60%, 0.2); }
+        .dark-mode .social-links a { background: hsl(225, 15%, 25%); color: var(--gray); }
+        .dark-mode .social-links a:hover { background: var(--primary); color: var(--darker); }
+
+        /* Testimonials - Elegant Styling */
+        .testimonials { background-color: var(--dark); color: var(--gray); }
+        .dark-mode .testimonials { background-color: var(--darker); }
+        .testimonials.aurora-bg::before { opacity: 0.15; filter: blur(120px); }
+        .testimonials .section-title { color: var(--primary-light); }
+        .testimonials .section-subtitle { color: var(--gray); }
+        .testimonial-grid { gap: 45px; }
+        .testimonial-card {
+            background: var(--card-bg); padding: 45px; border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md); transition: var(--transition-med); display: flex; flex-direction: column;
+            border: 1px solid var(--border-color); border-left: 7px solid var(--primary);
+        }
+        .testimonial-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-left-color: var(--accent); }
+        .testimonial-card .quote {
+            font-style: italic; margin-bottom: 30px; color: var(--text); font-size: 1.2rem; /* Slightly larger quote */
+            line-height: 1.85; flex-grow: 1; position: relative; padding-left: 55px;
+        }
+        .testimonial-card .quote::before { /* More subtle quote mark */
+            content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 3.5rem;
+            color: var(--primary); opacity: 0.08; position: absolute; top: -15px; left: 0px; z-index: 0;
+            transition: color var(--transition-med);
+        }
+         .testimonial-card:hover .quote::before { color: var(--accent); opacity: 0.1; }
+        .rating { color: var(--warning); margin-bottom: 25px; font-size: 1.15rem; }
+        .testimonial-author { display: flex; align-items: center; margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 25px; }
+        .author-img { width: 65px; height: 65px; border-radius: 50%; overflow: hidden; margin-right: 18px; border: 3px solid var(--primary); }
+        .author-info h4 { font-size: 1.2rem; margin-bottom: 4px; color: var(--text-heading); font-weight: 600; font-family: var(--font-secondary);}
+        .author-info p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        /* Contact Section */
+        .contact-container { gap: 80px; }
+        .contact-info h3 { color: var(--primary); margin-bottom: 30px; }
+        .contact-info p { color: var(--text); margin-bottom: 45px; line-height: 1.9; }
+        .contact-item { display: flex; align-items: flex-start; margin-bottom: 35px; transition: var(--transition-fast); padding: 15px; border-radius: var(--border-radius-md); }
+        .contact-item:hover { background-color: hsla(var(--primary-hue), 70%, 60%, 0.04); transform: translateX(5px); }
+        .dark-mode .contact-item:hover { background-color: hsla(var(--primary-hue), 70%, 60%, 0.08); }
+        .contact-icon {
+            width: 65px; height: 65px; flex-shrink: 0; margin-right: 25px;
+            background: linear-gradient(140deg, var(--primary-light), var(--secondary));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-size: 1.6rem; box-shadow: 0 10px 22px hsla(var(--primary-hue), 70%, 60%, 0.25);
+        }
+        .contact-text h4 { margin-bottom: 10px; color: var(--text-heading); font-weight: 600; font-family: var(--font-secondary); }
+        .contact-text p, .contact-text a { color: var(--text); line-height: 1.7; margin: 0; font-size: 1rem; }
+        .contact-text a { position: relative; }
+        .contact-text a::after { /* Subtle underline on hover */
+             content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px;
+             background-color: var(--primary); transition: width var(--transition-fast);
+         }
+         .contact-text a:hover { color: var(--primary); }
+        .contact-text a:hover::after { width: 100%; }
+        .map-container { border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); }
+        .contact-form-section { background: var(--card-bg); padding: 60px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border-color);}
+        .contact-form-section h3 { margin-bottom: 15px; }
+
+        /* Repair Tracker */
+        .status-tracker {
+            background: var(--card-bg); border-radius: var(--border-radius-lg); padding: 50px;
+            box-shadow: var(--shadow-md); max-width: 800px; margin: 0 auto 90px; border: 1px solid var(--border-color);
+        }
+        .tracker-form { display: flex; gap: 25px; margin-bottom: 40px; align-items: flex-start; } /* Align items top */
+        .tracker-form .form-group { flex-grow: 1; margin-bottom: 0; }
+        .tracker-form button { flex-shrink: 0; padding: 16px 30px; height: 61px; /* Match input height approx */ margin-top: 0;}
+        .tracker-result { margin-top: 35px; padding: 35px; border-radius: var(--border-radius-md); display: none; border: 1px solid transparent; }
+        .tracker-result.show { display: block; animation: fadeInResult 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; }
+        @keyframes fadeInResult { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+        .tracker-result.success { background: hsla(var(--success), 60%, 50%, 0.05); border-color: hsla(var(--success), 60%, 50%, 0.25); color: var(--text); }
+        .dark-mode .tracker-result.success { background: hsla(var(--success), 60%, 70%, 0.08); border-color: hsla(var(--success), 60%, 70%, 0.25); }
+        .tracker-result.success h4 { color: var(--primary); margin-bottom: 1.2rem; font-family: var(--font-secondary);}
+        .tracker-result.error { background: hsla(var(--danger), 80%, 50%, 0.05); border-color: hsla(var(--danger), 80%, 50%, 0.25); color: var(--danger); }
+        .dark-mode .tracker-result.error { background: hsla(var(--danger), 80%, 60%, 0.08); border-color: hsla(var(--danger), 80%, 60%, 0.25); }
+
+        /* Enhanced Status Steps */
+        .status-steps { margin-top: 35px; position: relative; padding-left: 20px; }
+        .status-steps::before { /* Vertical line */
+            content: ''; position: absolute; left: 32px; top: 15px; bottom: 15px; width: 3px;
+            background-color: var(--border-color); border-radius: 1.5px; z-index: 0;
+        }
+        .status-step {
+            position: relative; padding-left: 65px; margin-bottom: 35px; color: var(--text-muted);
+            font-weight: 500; z-index: 1; transition: color var(--transition-med); font-size: 1.05rem;
+        }
+        .status-step:last-child { margin-bottom: 0; }
+        .status-step::before { /* Circle */
+            content: ''; position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+            width: 26px; height: 26px; border-radius: 50%; background: var(--bg);
+            border: 3px solid var(--border-color); transition: var(--transition-med); z-index: 1;
+        }
+        .status-step::after { /* Inner dot */
+             content: ''; position: absolute; left: 33px; top: 50%; transform: translate(-50%, -50%);
+             width: 10px; height: 10px; border-radius: 50%; background: var(--border-color);
+             transition: var(--transition-med); z-index: 2; opacity: 1;
+        }
+
+        .status-step.active { color: var(--text-heading); font-weight: 600; }
+        .status-step.active::before { border-color: var(--success); background: var(--success); box-shadow: 0 0 18px hsla(var(--success), 70%, 60%, 0.4); }
+        .status-step.active::after { background: var(--white); opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+
+        .status-step.completed { color: var(--text-heading); }
+        .status-step.completed::before { border-color: var(--success); background: var(--success); }
+        .status-step.completed::after { /* Checkmark */
+            content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 13px;
+            color: var(--white); background: transparent; width: auto; height: auto;
+            left: 33px; opacity: 1; transform: translate(-50%, -50%) scale(1);
+        }
+
+        /*--------------------------------------------------------------
+        # Footer - Enhanced Design
+        --------------------------------------------------------------*/
+        footer { background: var(--footer-bg); color: var(--footer-text); padding: 120px 0 50px; margin-top: var(--section-padding); border-top: 1px solid hsl(225, 15%, 22%); } /* Darker border */
+        .footer-container { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 60px; margin-bottom: 70px; } /* Adjust column ratios */
+        .footer-col h3 { font-size: 1.6rem; margin-bottom: 35px; color: var(--footer-heading); position: relative; padding-bottom: 18px; font-weight: 700; font-family: var(--font-secondary); }
+        .footer-col h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 1.5px; }
+        .footer-col p { color: var(--footer-text); margin-bottom: 30px; line-height: 1.8; font-size: 0.98rem; max-width: 45ch;}
+        .footer-col ul li { margin-bottom: 18px; }
+        .footer-col ul li a { color: var(--footer-text); transition: var(--transition-fast); display: inline-block; position: relative; padding-left: 0; font-size: 1rem; }
+        .footer-col ul li a:hover { color: var(--primary-light); transform: translateX(5px); }
+        .footer-col ul.contact-details-list li { display: flex; align-items: flex-start; font-size: 1rem;} /* Align icon and text */
+        .footer-col ul li i { margin-right: 15px; color: var(--primary); width: 20px; text-align: center; margin-top: 5px; flex-shrink: 0; font-size: 1.1rem; }
+        .footer-social-links { display: flex; gap: 20px; margin-top: 35px; }
+        .footer-social-links a {
+            display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;
+            background: hsla(0, 0%, 100%, 0.06); border-radius: 50%; color: var(--footer-heading); font-size: 1.2rem; transition: var(--transition-med);
+        }
+        .footer-social-links a:hover { background: var(--primary); color: var(--white); transform: translateY(-6px) scale(1.1); box-shadow: 0 10px 18px hsla(var(--primary-hue), 70%, 60%, 0.25); }
+        .dark-mode .footer-social-links a { background: hsla(0, 0%, 100%, 0.08); color: var(--off-white); }
+        .dark-mode .footer-social-links a:hover { background: var(--primary); color: var(--darker); }
+        .copyright { text-align: center; padding-top: 60px; border-top: 1px solid hsl(225, 15%, 22%); font-size: 0.9rem; color: var(--text-muted); }
+        .copyright p { max-width: none; } /* Allow copyright to span */
+
+        /*--------------------------------------------------------------
+        # Page Transitions & Animations - Smoother
+        --------------------------------------------------------------*/
+        .page { display: none; }
+        .page.active { display: block; animation: pageFadeIn 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .page.exiting { animation: pageFadeOut 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        @keyframes pageFadeIn {
+             from { opacity: 0; transform: translateY(30px); filter: blur(5px); }
+             to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes pageFadeOut {
+            from { opacity: 1; transform: translateY(0); filter: blur(0); }
+            to { opacity: 0; transform: translateY(-30px); filter: blur(5px); }
+        }
+
+        .animate-on-scroll { opacity: 0; transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1), filter 1s cubic-bezier(0.165, 0.84, 0.44, 1); filter: blur(8px);}
+        .animate-fade-in { transform: translateY(30px); }
+        .animate-fade-up { transform: translateY(70px); } /* Increased distance */
+        .animate-fade-left { transform: translateX(-70px); }
+        .animate-fade-right { transform: translateX(70px); }
+        .animate-zoom-in { transform: scale(0.95); }
+        .animate-rotate-in { transform: rotate(-4deg) scale(0.96); }
+        .animate-on-scroll.visible { opacity: 1; transform: translate(0, 0) scale(1) rotate(0deg); filter: blur(0); }
+
+        /*--------------------------------------------------------------
+        # Loading Animation - Refined
+        --------------------------------------------------------------*/
+        .loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg); display: flex; justify-content: center; align-items: center;
+            z-index: 9999; transition: opacity 0.7s ease 0.2s, visibility 0.7s ease 0.2s; /* Faster fade out */
+        }
+        .loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-circle {
+            width: 60px; height: 60px; border: 6px solid var(--border-color);
+            border-top-color: var(--primary);
+            border-right-color: var(--accent-light); /* Add second color */
+            border-radius: 50%;
+            animation: spin 1.2s cubic-bezier(0.6, 0.1, 0.4, 0.9) infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /*--------------------------------------------------------------
+        # Responsive Styles - Adjustments for Elegance
+        --------------------------------------------------------------*/
+        @media (max-width: 1200px) {
+             .footer-container { grid-template-columns: 1.5fr repeat(2, 1fr); gap: 50px; } /* Adjust footer columns */
+        }
+
+        @media (max-width: 1024px) {
+            .container { padding: 0 30px; }
+            .about-content { gap: 60px; grid-template-columns: 1fr; } /* Stack about content earlier */
+            .about-img { order: -1; margin-bottom: 50px; }
+            .contact-container { gap: 60px; grid-template-columns: 1fr; }
+             .pricing-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+             .footer-container { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+             .nav-links li { margin-left: 40px; }
+        }
+
+        @media (max-width: 768px) {
+             :root { --section-padding: clamp(70px, 10vw, 120px); }
+             h1 { font-size: clamp(2.5rem, 7vw, 3.8rem); }
+             h2 { font-size: clamp(2rem, 5.5vw, 2.8rem); }
+             .section-subtitle { margin-bottom: 70px; font-size: clamp(1rem, 2.5vw, 1.2rem); }
+             .navbar { padding: 15px 0; } /* Consistent padding */
+             #main-header { padding: 0; }
+             #main-header.scrolled { padding: 0; }
+
+             .nav-links { display: none; } /* Hide desktop links */
+             .hamburger { display: block; } /* Show hamburger */
+
+            .hero { min-height: 90vh; height: auto; padding: 180px 0 100px; }
+             .hero p { font-size: clamp(1.05rem, 3vw, 1.4rem); }
+             .hero-btns { flex-direction: column; gap: 25px; align-items: center; }
+             .hero .btn { width: 85%; max-width: 380px; }
+
+             .grid-cols-2, .grid-cols-3, .grid-cols-4 { grid-template-columns: 1fr; }
+             .about-stats { gap: 30px; }
+             .stat-item { padding: 30px; }
+             .form-row { grid-template-columns: 1fr; gap: 0 !important; } /* Stack form rows */
+             .tracker-form { flex-direction: column; gap: 20px; }
+             .contact-form-section { padding: 45px; }
+             .service-icon { width: 65px; height: 65px; font-size: 1.9rem; top: -33px; left: 30px; }
+             .service-content { padding: 60px 30px 30px; }
+             .pricing-card.popular { transform: scale(1); } /* Remove pop effect */
+             .pricing-card.popular:hover { transform: translateY(-10px) scale(1.03); }
+             .testimonial-grid { grid-template-columns: 1fr; } /* Stack testimonials */
+             .footer-container { gap: 45px; }
+        }
+
+        @media (max-width: 480px) {
+             .container { padding: 0 20px; }
+             h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+             h2 { font-size: clamp(1.8rem, 6.5vw, 2.4rem); }
+             .btn { padding: 14px 35px; font-size: 0.8rem; letter-spacing: 1.2px; }
+             .hero .btn { padding: 16px 40px; width: 90%; }
+             .nav-links-mobile { width: 90%; max-width: none; padding: 120px 30px 30px; }
+             .scroll-down { font-size: 2rem; bottom: 30px; }
+             .price-calculator, .status-tracker, .contact-form-section { padding: 35px 25px; }
+             .testimonial-card { padding: 35px 25px; }
+             .contact-icon { width: 55px; height: 55px; font-size: 1.4rem; margin-right: 20px; }
+             .status-tracker h3 { font-size: 1.8rem; }
+             .tracker-form button { height: auto; padding: 14px 25px;}
+        }
+        /* Price Calculator Specific Styles (Keep similar) */
+        .price-calculator {
+            background: var(--card-bg); border-radius: var(--border-radius-lg);
+            padding: 50px; box-shadow: var(--shadow-md); max-width: 900px;
+            margin: 0 auto 80px; border: 1px solid var(--border-color);
+        }
+        .calculator-row { gap: 25px; }
+        .calculator-result {
+            margin-top: 40px; padding: 30px; border-radius: var(--border-radius-md);
+            background: hsla(var(--primary-hue), 75%, 60%, 0.05);
+            border: 1px solid hsla(var(--primary-hue), 75%, 60%, 0.15);
+            text-align: center; display: none; opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .calculator-result.show { display: block; opacity: 1; }
+        .dark-mode .calculator-result {
+            background: hsla(var(--primary-hue), 75%, 70%, 0.1);
+            border: 1px solid hsla(var(--primary-hue), 75%, 70%, 0.2);
+        }
+        .calculator-result h3 { color: var(--primary); margin-bottom: 15px; font-family: var(--font-secondary); }
+        .estimated-price { font-size: 2.8rem; font-weight: 700; color: var(--text-heading); display: block; margin-bottom: 10px; }
+        .calculator-result p { color: var(--text-muted); font-size: 0.9rem; }
+
+         /* Additional Mini Features Styling (keep similar) */
+         .mini-features { margin-bottom: 0; list-style: none; padding: 0;}
+         .mini-features li { font-size: 0.9rem; padding: 10px 0 10px 30px; position: relative; border-bottom: 1px solid var(--border-color); }
+         .mini-features li:last-child { border-bottom: none; }
+         .mini-features li::before { content: '\f058'; /* FontAwesome check-circle */ font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.9rem; color: var(--primary); position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+         #services-page .service-card .service-content { padding-top: 40px; } /* Adjust padding if icon is removed */
+         #services-page .service-card .service-icon { display: block; } /* Ensure icon shows if desired */
+
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home-page" class="logo animate-on-scroll animate-fade-in navigate-page" data-page="home" aria-label="Next Level Wireless Home">
+                    <svg viewBox="0 0 250 50" xmlns="http://www.w3.org/2000/svg">
+                        <text x="0" y="35" class="logo-main-text">Next Level</text>
+                        <text x="160" y="35" class="logo-accent-text">Wireless</text>
+                        <!-- Add more SVG elements if desired, like subtle lines or shapes -->
+                    </svg>
+                </a>
+                <!-- Desktop Navigation -->
+                <ul class="nav-links">
+                    <li><a href="#home-page" class="nav-link active navigate-page" data-page="home">Home</a></li>
+                    <li><a href="#services-page" class="nav-link navigate-page" data-page="services">Services</a></li>
+                    <li><a href="#pricing-page" class="nav-link navigate-page" data-page="pricing">Pricing</a></li>
+                    <li><a href="#about-page" class="nav-link navigate-page" data-page="about">About</a></li>
+                    <li><a href="#testimonials-page" class="nav-link navigate-page" data-page="testimonials">Reviews</a></li>
+                    <li><a href="#contact-page" class="nav-link navigate-page" data-page="contact">Contact</a></li>
+                </ul>
+                 <!-- Mobile Navigation Trigger -->
+                 <div class="nav-btns">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNavMenu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+         <!-- Mobile Navigation Menu -->
+         <ul class="nav-links-mobile" id="mobileNavMenu" role="menu">
+            <li><a href="#home-page" class="nav-link navigate-page" data-page="home" role="menuitem">Home</a></li>
+            <li><a href="#services-page" class="nav-link navigate-page" data-page="services" role="menuitem">Services</a></li>
+            <li><a href="#pricing-page" class="nav-link navigate-page" data-page="pricing" role="menuitem">Pricing</a></li>
+            <li><a href="#about-page" class="nav-link navigate-page" data-page="about" role="menuitem">About</a></li>
+            <li><a href="#testimonials-page" class="nav-link navigate-page" data-page="testimonials" role="menuitem">Reviews</a></li>
+            <li><a href="#contact-page" class="nav-link navigate-page" data-page="contact" role="menuitem">Contact</a></li>
+            <li class="mt-4">
+                <a href="#contact-page" class="btn btn-primary navigate-page" data-page="contact" role="menuitem" style="width: 100%; text-align:center;">
+                    <i class="fas fa-calendar-alt"></i> Book Repair
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Home Page Section -->
+        <section class="page active" id="home-page" data-section-id="home">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-background-container">
+                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=85" alt="Elegant workspace with devices" class="hero-bg-image">
+                     <canvas id="hero-particles"></canvas>
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Elite Device Repair<br>Philadelphia</h1>
+                        <p>Experience unparalleled speed & quality. We expertly fix smartphones, tablets, MacBooks, consoles & more, often while you wait. Backed by our solid warranty for your peace of mind.</p>
+                        <div class="hero-btns">
+                            <a href="#contact-page" class="btn btn-accent navigate-page" data-page="contact"><i class="fas fa-calendar-check"></i> Book Your Repair</a>
+                            <a href="#services-page" class="btn btn-outline navigate-page" data-page="services"><i class="fas fa-tools"></i> Explore Services</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#services-preview" class="scroll-down" aria-label="Scroll to next section">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </section>
+
+            <!-- Services Preview Section -->
+            <section class="section" id="services-preview">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll animate-fade-up">Core Repair Expertise</h2>
+                    <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">From cracked screens to complex board-level issues, our certified technicians deliver meticulous repairs using premium parts, ensuring longevity and performance.</p>
+
+                    <div class="grid grid-cols-3 grid-auto-fit">
+                        <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.2s;">
+                            <div class="service-icon"> <i class="fas fa-mobile-screen-button"></i> </div>
+                            <div class="service-img"> <img src="https://images.unsplash.com/photo-1609234173662-e3bb006ca845?q=85&w=800&auto=format&fit=crop" alt="Smartphone screen replacement service"> </div>
+                            <div class="service-content">
+                                <h3>Screen Replacement</h3>
+                                <p>Flawless screen repairs for iPhone, Samsung, Pixel, and more. Quick turnaround, premium displays, lifetime warranty options available.</p>
+                                <a href="#services-page" class="btn btn-outline navigate-page" data-page="services">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.3s;">
+                             <div class="service-icon"> <i class="fas fa-battery-full"></i> </div>
+                            <div class="service-img"> <img src="https://images.unsplash.com/photo-1611107961207-1149c386a80f?q=85&w=800&auto=format&fit=crop" alt="Smartphone battery replacement service"> </div>
+                            <div class="service-content">
+                                <h3>Battery Replacement</h3>
+                                <p>Restore your device's vitality with our high-performance battery replacement service. Fast, efficient, and reliable power.</p>
+                                <a href="#services-page" class="btn btn-outline navigate-page" data-page="services">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.4s;">
+                             <div class="service-icon"> <i class="fas fa-laptop-medical"></i> </div>
+                            <div class="service-img"> <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=85&w=800&auto=format&fit=crop" alt="MacBook and laptop repair service"> </div>
+                            <div class="service-content">
+                                <h3>MacBook & Laptop Repair</h3>
+                                <p>Expert solutions for screens, batteries, keyboards, complex logic board issues, and liquid damage recovery.</p>
+                                <a href="#services-page" class="btn btn-outline navigate-page" data-page="services">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="text-center mt-5 animate-on-scroll animate-fade-up">
+                        <a href="#services-page" class="btn btn-primary navigate-page" data-page="services"> <i class="fas fa-list-check"></i> View All Services </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="section aurora-bg" style="background-color: var(--light-gray);">
+                 <div class="container">
+                     <h2 class="section-title animate-on-scroll animate-fade-up">The Next Level Advantage</h2>
+                     <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">Discover why discerning clients across Philadelphia trust us with their valuable devices.</p>
+                    <div class="grid grid-cols-3 grid-auto-fit about-stats">
+                        <div class="stat-item animate-on-scroll animate-zoom-in" style="animation-delay: 0.2s;">
+                            <div class="stat-number">5K+</div> <div class="stat-label">Repairs Completed</div>
+                        </div>
+                        <div class="stat-item animate-on-scroll animate-zoom-in" style="animation-delay: 0.3s;">
+                            <div class="stat-number">90 Day</div> <div class="stat-label">Standard Warranty</div>
+                        </div>
+                        <div class="stat-item animate-on-scroll animate-zoom-in" style="animation-delay: 0.4s;">
+                            <div class="stat-number">~30 Min</div> <div class="stat-label">Avg. Screen Repair</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Services Page Section -->
+        <section class="page" id="services-page" data-section-id="services">
+             <section class="section">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll animate-fade-up">Comprehensive Repair Solutions</h2>
+                    <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">We handle an extensive range of issues across all major device types, ensuring unparalleled quality, reliability, and swift service.</p>
+                    <div class="grid grid-cols-4 grid-auto-fit" style="gap: 40px;">
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.2s;">
+                             <div class="service-icon"> <i class="fas fa-mobile-screen-button"></i> </div>
+                             <div class="service-img"><img src="https://images.unsplash.com/photo-1609234173662-e3bb006ca845?q=85&w=600&auto=format&fit=crop" alt="Detailed view of phone screen repair"></div>
+                             <div class="service-content"> <h3>Screen Replacement</h3> <p>iPhone, Android, iPad screen fixes using premium quality displays. OEM and aftermarket options available.</p> <a href="#pricing-page" class="btn btn-outline navigate-page" data-page="pricing">See Pricing</a> </div>
+                         </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.3s;">
+                             <div class="service-icon"> <i class="fas fa-battery-full"></i> </div>
+                             <div class="service-img"><img src="https://images.unsplash.com/photo-1611107961207-1149c386a80f?q=85&w=600&auto=format&fit=crop" alt="Detailed view of phone battery replacement"></div>
+                             <div class="service-content"> <h3>Battery Replacement</h3> <p>Extend device life with high-capacity, safety-certified batteries for phones, tablets & MacBooks.</p> <a href="#pricing-page" class="btn btn-outline navigate-page" data-page="pricing">See Pricing</a> </div>
+                         </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.4s;">
+                             <div class="service-icon"> <i class="fas fa-tint-slash"></i> </div>
+                              <div class="service-img"><img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=85&w=600&auto=format&fit=crop" alt="Detailed view of water damage repair process"></div>
+                             <div class="service-content"> <h3>Water Damage Repair</h3> <p>Advanced ultrasonic cleaning & micro-soldering techniques to rescue liquid-exposed devices.</p> <a href="#pricing-page" class="btn btn-outline navigate-page" data-page="pricing">See Pricing</a> </div>
+                         </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.5s;">
+                             <div class="service-icon"><i class="fas fa-plug-circle-bolt"></i></div>
+                             <div class="service-img"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=85&w=600&auto=format&fit=crop" alt="Detailed view of charging port repair"></div>
+                             <div class="service-content"> <h3>Charging Port Repair</h3> <p>Resolve charging and connectivity issues on phones, tablets, and laptops with precision port replacement.</p> <a href="#pricing-page" class="btn btn-outline navigate-page" data-page="pricing">See Pricing</a> </div>
+                         </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.2s;">
+                             <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                              <div class="service-img"><img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?q=85&w=600&auto=format&fit=crop" alt="Laptop showing software troubleshooting screen"></div>
+                             <div class="service-content"> <h3>Software Solutions</h3> <p>OS reinstalls, data recovery attempts, virus/malware removal, and performance optimization.</p> <a href="#pricing-page" class="btn btn-outline navigate-page" data-page="pricing">See Pricing</a> </div>
+                         </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.3s;">
+                            <div class="service-icon"><i class="fas fa-tablet-screen-button"></i></div>
+                             <div class="service-img"><img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?q=85&w=600&auto=format&fit=crop" alt="iPad and tablet repair service"></div>
+                            <div class="service-content"> <h3>iPad & Tablet Repairs</h3> <p>Screen, battery, charging port, button, and logic board repairs for all major tablet models.</p> <a href="#contact-page" class="btn btn-outline navigate-page" data-page="contact">Request Quote</a> </div>
+                         </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.4s;">
+                             <div class="service-icon"><i class="fas fa-laptop"></i></div>
+                              <div class="service-img"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=85&w=600&auto=format&fit=crop" alt="MacBook repair service detail"></div>
+                             <div class="service-content"> <h3>MacBook Repairs</h3> <p>Specialized repairs for MacBook screens, batteries, keyboards, trackpads, and logic boards.</p> <a href="#contact-page" class="btn btn-outline navigate-page" data-page="contact">Request Quote</a> </div>
+                         </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.5s;">
+                            <div class="service-icon"><i class="fas fa-gamepad"></i></div>
+                            <div class="service-img"><img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?q=85&w=600&auto=format&fit=crop" alt="Game console repair service detail"></div>
+                            <div class="service-content"> <h3>Game Console Repairs</h3> <p>HDMI ports, power issues, drive failures, overheating for PlayStation, Xbox, and Nintendo consoles.</p> <a href="#contact-page" class="btn btn-outline navigate-page" data-page="contact">Request Quote</a> </div>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Offerings Section -->
+            <section class="section aurora-bg" style="background-color: var(--light-gray);">
+                 <div class="container">
+                    <h2 class="section-title animate-on-scroll animate-fade-up">Beyond The Bench</h2>
+                    <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">We're your complete tech solution center. Explore activations, premium accessories, and expert support services.</p>
+                    <div class="grid grid-cols-3 grid-auto-fit">
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.2s;">
+                            <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
+                            <div class="service-content">
+                                <h3>Device Setup & Data</h3>
+                                <ul class="mini-features">
+                                    <li>Apple / Android Account Reset</li>
+                                    <li>New Device Configuration</li>
+                                    <li>Secure Data Backup & Transfer</li>
+                                    <li>Cloud Service Setup</li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.3s;">
+                            <div class="service-icon"><i class="fas fa-sim-card"></i></div>
+                            <div class="service-content">
+                                <h3>Phone Activations</h3>
+                                <ul class="mini-features">
+                                     <li>Major Carriers (T-Mobile, AT&T, Verizon)</li>
+                                     <li>Popular MVNOs (Simple, Lyca, H2O)</li>
+                                     <li>Prepaid Plans (Xfinity & More)</li>
+                                     <li>SIM Card Swaps & Support</li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="service-card animate-on-scroll animate-fade-up" style="animation-delay: 0.4s;">
+                            <div class="service-icon"><i class="fas fa-headphones-alt"></i></div>
+                            <div class="service-content">
+                                <h3>Premium Accessories</h3>
+                                <ul class="mini-features">
+                                    <li>Tempered Glass & Film Protectors</li>
+                                    <li>Protective Cases (Various Brands)</li>
+                                    <li>Fast Chargers, Cables, Power Banks</li>
+                                    <li>Audio, Gaming & Smart Tech Gear</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+        </section>
+
+         <!-- Pricing Page Section -->
+        <section class="page" id="pricing-page" data-section-id="pricing">
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll animate-fade-up">Transparent & Fair Pricing</h2>
+                    <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">Quality repairs at competitive prices, always backed by our warranty. Get an instant estimate below or contact us for complex issues.</p>
+
+                    <!-- Dynamic Pricing Calculator -->
+                    <div class="price-calculator animate-on-scroll animate-zoom-in" style="animation-delay: 0.2s;">
+                        <h3 style="text-align: center; margin-bottom: 45px; color: var(--primary);">Instant Price Estimator</h3>
+                        <form id="calculatorForm">
+                             <div class="grid grid-cols-2 calculator-row">
+                                <div class="form-group">
+                                     <select id="calculatorDeviceType" name="device_type" class="form-control" required>
+                                        <option value="" disabled selected>Select Device Type *</option> <!-- Use placeholder attribute -->
+                                        <option value="iPhone">iPhone</option> <option value="Android">Android Phone</option>
+                                        <option value="iPad">iPad</option> <option value="MacBook">MacBook</option>
+                                        <option value="Console">Gaming Console</option>
+                                    </select>
+                                    <label for="calculatorDeviceType" class="form-label">Device Type</label>
+                                </div>
+                                <div class="form-group">
+                                    <select id="calculatorDeviceModel" name="device_model" class="form-control" disabled>
+                                        <option value="" disabled selected>Select Model (Optional)</option>
+                                    </select>
+                                     <label for="calculatorDeviceModel" class="form-label">Device Model</label>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 calculator-row">
+                                <div class="form-group">
+                                    <select id="calculatorServiceType" name="service_type" class="form-control" required>
+                                        <option value="" disabled selected>Select Service Needed *</option>
+                                        <option value="Screen Repair">Screen Repair</option> <option value="Battery Replacement">Battery Replacement</option>
+                                        <option value="Water Damage">Water Damage Assessment</option> <option value="Charging Port">Charging Port Repair</option>
+                                        <option value="Software Issue">Software Diagnostic</option> <option value="Keyboard Replacement">Keyboard Replacement (MacBook)</option>
+                                        <option value="HDMI Port">HDMI Port (Console)</option> <option value="Drive Repair">Drive Repair (Console)</option>
+                                        <option value="Controller Repair">Controller Repair (Console)</option> <option value="Other">Other / Diagnostic</option>
+                                    </select>
+                                     <label for="calculatorServiceType" class="form-label">Service Needed</label>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <button type="button" id="calculatePrice" class="btn btn-primary" style="width: 100%; height: 61px; padding: 16px;"><i class="fas fa-calculator"></i> Get Estimate</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="calculator-result" id="calculatorResult">
+                            <h3>Estimated Repair Cost</h3>
+                            <div class="estimated-price"><sup>$</sup><span id="estimatedPrice">0</span></div>
+                            <p>This is an estimate. Final price depends on the specific model and extent of damage.</p>
+                             <button class="btn btn-accent mt-3" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR_USERNAME/repair-consultation'});return false;">
+                                <i class="fas fa-calendar-check"></i> Book Consultation
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 pricing-grid mt-5">
+                         <div class="pricing-card animate-on-scroll animate-fade-left" style="animation-delay: 0.3s;">
+                            <h3>Screen Repairs</h3> <div class="price"><sup>$</sup>69<span>+</span></div>
+                            <ul class="pricing-features"> <li>iPhone Models (6-14+)</li> <li>Samsung Galaxy (S, A, Note)</li> <li>Google Pixel Series</li> <li>iPad All Generations</li> <li>MacBook Screens (Air/Pro)</li> </ul>
+                            <button class="btn btn-outline mt-4" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR_USERNAME/repair-consultation'});return false;"> <i class="fas fa-calendar-alt"></i> Book Now </button>
+                        </div>
+                        <div class="pricing-card popular animate-on-scroll animate-zoom-in" style="animation-delay: 0.2s;">
+                            <div class="popular-tag">Most Common</div> <h3>Battery Swaps</h3> <div class="price"><sup>$</sup>39<span>+</span></div>
+                            <ul class="pricing-features"> <li>iPhone Models (6-14+)</li> <li>Samsung Galaxy Series</li> <li>Google Pixel Series</li> <li>iPad All Generations</li> <li>MacBook Batteries (Air/Pro)</li> </ul>
+                            <button class="btn btn-accent mt-4" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR_USERNAME/repair-consultation'});return false;"> <i class="fas fa-calendar-alt"></i> Book Now </button>
+                        </div>
+                        <div class="pricing-card animate-on-scroll animate-fade-right" style="animation-delay: 0.3s;">
+                            <h3>Other Fixes</h3> <div class="price"><sup>$</sup>49<span>+</span></div>
+                            <ul class="pricing-features"> <li>Charging Ports (All Devices)</li> <li>Cameras / Speakers / Mics</li> <li>Liquid Damage Treatment</li> <li>Console HDMI/Drives/PSU</li> <li>Free Initial Diagnostics</li> </ul>
+                            <button class="btn btn-outline mt-4" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR_USERNAME/repair-consultation'});return false;"> <i class="fas fa-calendar-alt"></i> Book Now </button>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5 animate-on-scroll animate-fade-up">
+                        <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">Prices listed are starting points and may vary based on specific device model and the severity of the damage. We always provide a firm quote after diagnosis for complex repairs. All repairs include a 90-day warranty.</p>
+                         <a href="#contact-page" class="btn btn-primary mt-3 navigate-page" data-page="contact"> <i class="fas fa-comment-dollar"></i> Request Accurate Quote </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- About Page Section -->
+        <section class="page" id="about-page" data-section-id="about">
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll animate-fade-up">Driven by Quality & Passion</h2>
+                    <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">Learn about our unwavering commitment to expert device repair and exceptional customer service right here in Philadelphia.</p>
+                    <div class="grid grid-cols-2 about-content">
+                        <div class="about-text animate-on-scroll animate-fade-left" style="animation-delay: 0.3s;">
+                            <h2>Your Trusted Philadelphia Tech Hub</h2>
+                            <p>Next Level Wireless isn't just another repair shop; we are your dedicated partners in maintaining the seamless operation of your digital life. Founded on a profound passion for technology and an unwavering commitment to service excellence, we strive to exceed expectations with every interaction.</p>
+                            <p>Our team comprises highly skilled, certified technicians possessing deep expertise across a vast spectrum of devices – from the latest smartphones and tablets to intricate MacBook logic boards and high-performance gaming consoles. We approach every repair with meticulous care and precision, utilizing only premium-grade parts that often meet or exceed original manufacturer specifications.</p>
+                            <p>We stand firmly behind the quality of our work with a comprehensive 90-day warranty, offering you complete confidence and peace of mind. Our services extend beyond repairs, encompassing device activations, a curated selection of high-quality accessories, and insightful tech support.</p>
+                            <p>Choose Next Level Wireless for reliable, swift, and expert solutions, delivered with an unwavering focus on your absolute satisfaction.</p>
+                             <a href="#contact-page" class="btn btn-primary mt-4 navigate-page" data-page="contact"> <i class="fas fa-map-marked-alt"></i> Visit Our Store </a>
+                        </div>
+                        <div class="about-img animate-on-scroll animate-fade-right" style="animation-delay: 0.2s;">
+                            <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=85&w=1000&auto=format&fit=crop" alt="Next Level Wireless technician carefully diagnosing a device component">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="section aurora-bg" style="background-color: var(--light-gray);">
+                 <div class="container">
+                    <h2 class="section-title animate-on-scroll animate-fade-up">Meet Our Expert Technicians</h2>
+                    <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">The skilled hands and sharp minds dedicated to restoring your technology.</p>
+                    <div class="grid grid-cols-3 grid-auto-fit" style="gap: 40px;">
+                         <div class="team-card animate-on-scroll animate-rotate-in" style="animation-delay: 0.2s;">
+                            <div class="team-img"> <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=85&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Alex Johnson - Lead Technician"> </div>
+                            <h3>Alex Johnson</h3> <span class="team-title">Lead Technician / Micro-Soldering Expert</span>
+                            <p>With 8+ years mastering complex repairs, Alex excels at challenging logic board issues and intricate liquid damage recovery.</p>
+                            <div class="social-links"> <a href="#" aria-label="Alex LinkedIn"><i class="fab fa-linkedin-in"></i></a> <a href="#" aria-label="Alex Website"><i class="fas fa-link"></i></a> </div>
+                        </div>
+                        <div class="team-card animate-on-scroll animate-rotate-in" style="animation-delay: 0.3s;">
+                            <div class="team-img"> <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=85&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Sarah Williams - Apple Certified Technician"> </div>
+                            <h3>Sarah Williams</h3> <span class="team-title">Apple Certified Master Technician</span>
+                             <p>Sarah holds top Apple certifications (ACMT), specializing in sophisticated repairs for iPhones, iPads, and MacBooks.</p>
+                            <div class="social-links"> <a href="#" aria-label="Sarah LinkedIn"><i class="fab fa-linkedin-in"></i></a> <a href="#" aria-label="Sarah Website"><i class="fas fa-link"></i></a> </div>
+                        </div>
+                        <div class="team-card animate-on-scroll animate-rotate-in" style="animation-delay: 0.4s;">
+                             <div class="team-img"> <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=85&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Michael Chen - Android and Console Specialist"> </div>
+                            <h3>Michael Chen</h3> <span class="team-title">Android & Console Specialist</span>
+                             <p>Michael is our go-to expert for all Android devices (Samsung, Pixel, etc.) and complex game console hardware repairs.</p>
+                            <div class="social-links"> <a href="#" aria-label="Michael LinkedIn"><i class="fab fa-linkedin-in"></i></a> <a href="#" aria-label="Michael Website"><i class="fas fa-link"></i></a> </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Testimonials Page Section -->
+        <section class="page testimonials aurora-bg" id="testimonials-page" data-section-id="testimonials">
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll animate-fade-up">Hear From Our Valued Clients</h2>
+                    <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">Real experiences and genuine feedback from customers who chose Next Level Wireless.</p>
+                    <div class="grid grid-cols-2 testimonial-grid grid-auto-fit">
+                        <div class="testimonial-card animate-on-scroll animate-fade-up" style="animation-delay: 0.2s;">
+                            <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> </div>
+                            <div class="quote"> "Absolutely stellar service! My iPhone 13 Pro screen was shattered, and they fixed it in under 30 minutes while I waited. Looks and feels completely brand new. The quality is top-notch. Highly recommended!" </div>
+                            <div class="testimonial-author"> <div class="author-img"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer Jessica M."></div> <div class="author-info"> <h4>Jessica M.</h4> <p>Google Review</p> </div> </div>
+                        </div>
+                        <div class="testimonial-card animate-on-scroll animate-fade-up" style="animation-delay: 0.3s;">
+                             <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> </div>
+                            <div class="quote"> "My MacBook Air battery died unexpectedly during finals week. These guys diagnosed it instantly, ordered the part overnight, and replaced it the next day. Faster than I thought possible. Saved my week!" </div>
+                            <div class="testimonial-author"> <div class="author-img"><img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Customer David R."></div> <div class="author-info"> <h4>David R.</h4> <p>Yelp Review</p> </div> </div>
+                        </div>
+                         <div class="testimonial-card animate-on-scroll animate-fade-up" style="animation-delay: 0.4s;">
+                             <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> </div> <!-- 4.5 stars example -->
+                            <div class="quote"> "Dropped my Pixel 6 in the sink, thought it was completely toast. Next Level's team performed some serious magic with their cleaning process and recovered all my photos! Incredible skill and transparent communication." </div>
+                            <div class="testimonial-author"> <div class="author-img"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer Maria G."></div> <div class="author-info"> <h4>Maria G.</h4> <p>Facebook Review</p> </div> </div>
+                        </div>
+                         <div class="testimonial-card animate-on-scroll animate-fade-up" style="animation-delay: 0.5s;">
+                             <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> </div>
+                            <div class="quote"> "Fixed the notoriously tricky HDMI port on my PS5 the same day I brought it in! Friendly, knowledgeable staff, fair pricing, and my console works perfectly again. Wouldn't dream of going anywhere else." </div>
+                             <div class="testimonial-author"> <div class="author-img"><img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Customer Kevin S."></div> <div class="author-info"> <h4>Kevin S.</h4> <p>In-Store Feedback</p> </div> </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Contact Page Section -->
+        <section class="page" id="contact-page" data-section-id="contact">
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll animate-fade-up">Connect With Us</h2>
+                    <p class="section-subtitle animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">Ready for an expert repair, have a question, or need a detailed quote? We're here to provide prompt and professional assistance.</p>
+
+                    <!-- Repair Status Tracker -->
+                    <div class="status-tracker animate-on-scroll animate-zoom-in" style="animation-delay: 0.2s;">
+                        <h3 style="text-align: center; margin-bottom: 40px;">Track Your Repair Progress</h3>
+                        <form class="tracker-form" id="trackerForm">
+                            <div class="form-group">
+                                <input type="text" id="trackerOrderId" class="form-control" placeholder=" " required>
+                                <label for="trackerOrderId" class="form-label">Enter Your Repair Order ID</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Track Status</button>
+                        </form>
+                        <div class="tracker-result" id="trackerResult"> <!-- Status Loaded by JS --> </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 contact-container">
+                        <div class="contact-info animate-on-scroll animate-fade-left" style="animation-delay: 0.3s;">
+                            <h3>Visit or Reach Out</h3>
+                            <p>Find us conveniently located in the heart of Philadelphia, or contact us via phone or email during our extensive business hours.</p>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                    <div class="contact-text"> <h4>Our Location</h4> <p><a href="https://www.google.com/maps/place/1104+Chestnut+St,+Philadelphia,+PA+19107/" target="_blank" rel="noopener noreferrer">1104 Chestnut St, Philadelphia, PA 19107</a></p> </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-phone-volume"></i></div>
+                                    <div class="contact-text"> <h4>Direct Line</h4> <p><a href="tel:2673078893">(267) 307-8893</a></p> </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
+                                    <div class="contact-text"> <h4>Email Us</h4> <p><a href="mailto:nextlevelwireless1104@gmail.com">nextlevelwireless1104@gmail.com</a></p> </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                                    <div class="contact-text"> <h4>Business Hours</h4> <p>Mon-Sat: 10:00 AM - 10:00 PM<br>Sun: 11:00 AM - 9:00 PM</p> </div>
+                                </div>
+                            </div>
+                             <div class="map-container mt-4">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.965459889402!2d-75.1577229242275!3d39.94958097153056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c62e0b4b01c9%3A0x1a5b1d1e3a3e3b1!2s1104%20Chestnut%20St%2C%20Philadelphia%2C%20PA%2019107!5e0!3m2!1sen!2sus!4v1701234567890!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Shop Location Map"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-section animate-on-scroll animate-fade-right" style="animation-delay: 0.4s;">
+                             <h3>Send a Repair Inquiry</h3>
+                             <p class="mb-4" style="color: var(--text-muted); font-size: 1rem;">Fill out the form below with details about your device and issue. We aim to respond within one business hour.</p>
+                            <form id="repairForm" novalidate>
+                                <div class="grid grid-cols-2 form-row">
+                                    <div class="form-group">
+                                        <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
+                                        <label for="name" class="form-label">Your Name *</label>
+                                        <div class="form-message error" id="nameMessage"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
+                                         <label for="email" class="form-label">Your Email *</label>
+                                        <div class="form-message error" id="emailMessage"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 form-row">
+                                     <div class="form-group">
+                                        <input type="tel" id="phone" name="phone" class="form-control" placeholder=" ">
+                                         <label for="phone" class="form-label">Phone (Optional)</label>
+                                        <div class="form-message error" id="phoneMessage"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <select id="deviceType" name="device_type_contact" class="form-control" required>
+                                            <option value="" disabled selected>Device Type *</option>
+                                            <option value="iPhone">iPhone</option> <option value="Android">Android Phone</option>
+                                            <option value="iPad">iPad</option> <option value="MacBook">MacBook</option>
+                                            <option value="Console">Gaming Console</option> <option value="Other">Other Device</option>
+                                        </select>
+                                        <label for="deviceType" class="form-label">Device Type</label> <!-- Still need label for float -->
+                                        <div class="form-message error" id="deviceTypeMessage"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="deviceModel" name="device_model_contact" class="form-control" placeholder=" " required>
+                                     <label for="deviceModel" class="form-label">Device Model (e.g., iPhone 14 Pro) *</label>
+                                    <div class="form-message error" id="deviceModelMessage"></div>
+                                </div>
+                                <div class="form-group">
+                                    <select id="serviceType" name="service_type_contact" class="form-control" required>
+                                        <option value="" disabled selected>Service Needed *</option>
+                                        <option value="Screen Repair">Screen Repair</option> <option value="Battery Replacement">Battery Replacement</option>
+                                        <option value="Water Damage">Water Damage Assessment</option> <option value="Charging Port">Charging Port Repair</option>
+                                        <option value="Software Issue">Software Issue / Diagnostic</option>
+                                        <option value="Other">Other Repair / General Quote</option>
+                                    </select>
+                                     <label for="serviceType" class="form-label">Service Needed</label>
+                                    <div class="form-message error" id="serviceTypeMessage"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="message" name="message" class="form-control" placeholder=" " required minlength="15"></textarea>
+                                     <label for="message" class="form-label">Describe the issue in detail... *</label>
+                                    <div class="form-message error" id="messageMessage"></div>
+                                </div>
+                                <button type="submit" class="btn btn-accent" style="width: 100%;"><i class="fas fa-paper-plane"></i> Submit Inquiry</button>
+                                <div id="formSubmissionMessage" role="alert" aria-live="polite" class="mt-3"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                 <div class="footer-col animate-on-scroll animate-fade-up" style="animation-delay: 0s;">
+                     <!-- Footer Logo -->
+                     <a href="#home-page" class="logo footer-logo navigate-page" data-page="home" aria-label="Next Level Wireless Home" style="display:inline-block; margin-bottom: 25px;">
+                        <svg viewBox="0 0 250 50" xmlns="http://www.w3.org/2000/svg" height="40">
+                            <text x="0" y="35" class="logo-main-text" style="fill: var(--primary-light);">Next Level</text>
+                            <text x="160" y="35" class="logo-accent-text" style="fill: var(--accent-light);">Wireless</text>
+                        </svg>
+                    </a>
+                    <p>Philadelphia's premier destination for expert device repair. We combine speed, quality parts, and skilled technicians to deliver reliable solutions for all your tech needs.</p>
+                    <div class="footer-social-links">
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Yelp"><i class="fab fa-yelp"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Google Maps"><i class="fas fa-map-location-dot"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col animate-on-scroll animate-fade-up" style="animation-delay: 0.1s;">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home-page" class="navigate-page" data-page="home">Home</a></li>
+                        <li><a href="#services-page" class="navigate-page" data-page="services">All Services</a></li>
+                        <li><a href="#pricing-page" class="navigate-page" data-page="pricing">Pricing & Estimates</a></li>
+                        <li><a href="#about-page" class="navigate-page" data-page="about">About Us</a></li>
+                        <li><a href="#testimonials-page" class="navigate-page" data-page="testimonials">Client Reviews</a></li>
+                        <li><a href="#contact-page" class="navigate-page" data-page="contact">Contact & Location</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col animate-on-scroll animate-fade-up" style="animation-delay: 0.2s;">
+                    <h3>Core Services</h3>
+                    <ul>
+                        <li><a href="#services-page" class="navigate-page" data-page="services">Smartphone Screen Repair</a></li>
+                        <li><a href="#services-page" class="navigate-page" data-page="services">Device Battery Replacement</a></li>
+                        <li><a href="#services-page" class="navigate-page" data-page="services">Liquid Damage Recovery</a></li>
+                        <li><a href="#services-page" class="navigate-page" data-page="services">Laptop & MacBook Repair</a></li>
+                        <li><a href="#services-page" class="navigate-page" data-page="services">Game Console Repair</a></li>
+                        <li><a href="#pricing-page" class="navigate-page" data-page="pricing">Free Diagnostic Check</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col animate-on-scroll animate-fade-up" style="animation-delay: 0.3s;">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-details-list">
+                        <li><i class="fas fa-map-marker-alt"></i> <div><a href="https://www.google.com/maps/place/1104+Chestnut+St,+Philadelphia,+PA+19107/" target="_blank" rel="noopener noreferrer">1104 Chestnut St, <br>Philadelphia, PA 19107</a></div></li>
+                        <li><i class="fas fa-phone-alt"></i> <div><a href="tel:2673078893">(267) 307-8893</a></div></li>
+                        <li><i class="fas fa-envelope"></i> <div><a href="mailto:nextlevelwireless1104@gmail.com">nextlevelwireless1104@gmail.com</a></div></li>
+                        <li><i class="fas fa-clock"></i> <div>Mon-Sat: 10am - 10pm <br>Sun: 11am - 9pm</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Next Level Wireless. All Rights Reserved. Site designed with precision in Philadelphia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calendly script -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <!-- Main Site Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Globals & Element Selectors ---
+            const body = document.body;
+            const header = document.getElementById('main-header');
+            const loader = document.querySelector('.loader');
+            const hamburger = document.getElementById('hamburgerBtn');
+            const mobileNavMenu = document.getElementById('mobileNavMenu');
+            const mobileNavLinks = mobileNavMenu.querySelectorAll('.nav-link'); // Mobile links for closing menu
+            const desktopNavLinks = document.querySelectorAll('header .nav-links a'); // For active state
+            const pages = document.querySelectorAll('.page');
+            const themeToggle = document.getElementById('themeToggle');
+            const repairForm = document.getElementById('repairForm');
+            const trackerForm = document.getElementById('trackerForm');
+            const currentYearSpan = document.getElementById('currentYear');
+            const internalNavLinks = document.querySelectorAll('.navigate-page');
+            const particleCanvas = document.getElementById('hero-particles');
+            const calculatorForm = document.getElementById('calculatorForm'); // Use the form for calculator inputs
+
+            // --- Initial Setup & Function Calls ---
+            currentYearSpan.textContent = new Date().getFullYear();
+            initTheme();
+            initScrollEffects();
+            initMobileNav();
+            initPageNavigation();
+            initSmoothScrolling();
+            initIntersectionObserver();
+            initFloatingLabels();
+            if (repairForm) initFormValidation();
+            if (trackerForm) initRepairTracker();
+            if (calculatorForm) initPriceCalculator(); // Check for calculator form
+            if (particleCanvas) initParticles();
+
+            // Hide loader
+            setTimeout(() => { loader.classList.add('hidden'); }, 300); // Slightly faster initial hide
+
+            // Set initial active states based on hash or default
+            handleInitialLoadAndPopstate();
+            window.addEventListener('popstate', handleInitialLoadAndPopstate); // Handle back/forward
+
+            // --- Theme Toggle ---
+            function initTheme() {
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                // Default to light unless specifically set to dark or preferred
+                setTheme(savedTheme === 'dark' || (!savedTheme && prefersDark) ? 'dark' : 'light');
+                themeToggle.addEventListener('click', () => {
+                    setTheme(body.classList.contains('dark-mode') ? 'light' : 'dark');
+                });
+            }
+            function setTheme(theme) {
+                body.classList.toggle('dark-mode', theme === 'dark');
+                localStorage.setItem('theme', theme);
+                themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Activate light mode' : 'Activate dark mode');
+                // Re-initialize particles if needed for color change (optional, depends on particle implementation)
+                if (particleCanvas && typeof initParticles === 'function') {
+                   // Check if particles need theme adjustment (e.g., color)
+                   // For this simple implementation, it might not be necessary unless colors are hardcoded
+                }
+            }
+
+            // --- Scroll Effects ---
+            function initScrollEffects() {
+                 let lastScrollTop = 0;
+                 const scrollThreshold = 50; // When to trigger header change
+                window.addEventListener('scroll', () => {
+                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                    // Sticky header shadow & style change
+                    header.classList.toggle('scrolled', currentScroll > scrollThreshold);
+
+                    // Optional: Hide header on scroll down, show on scroll up
+                    // if (currentScroll > lastScrollTop && currentScroll > header.offsetHeight + scrollThreshold){
+                    //    header.style.transform = `translateY(-100%)`; // Hide smoothly
+                    // } else {
+                    //    header.style.transform = "translateY(0)"; // Show
+                    // }
+                    // lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
+                    updateActiveNavLinkOnScroll(); // Update nav highlight
+                }, { passive: true });
+            }
+
+            // --- Update Active Nav Link On Scroll ---
+            function updateActiveNavLinkOnScroll() {
+                let currentSectionId = 'home'; // Default
+                const scrollPosition = window.scrollY;
+                const headerHeight = header.offsetHeight;
+                const thresholdOffset = headerHeight + 100; // Adjust offset for activation point
+
+                pages.forEach(page => {
+                    const pageTop = page.offsetTop;
+                    const pageHeight = page.offsetHeight;
+
+                    // Check if the top of the page is within the viewport threshold
+                    if (scrollPosition >= pageTop - thresholdOffset && scrollPosition < pageTop + pageHeight - thresholdOffset) {
+                         currentSectionId = page.getAttribute('data-section-id');
+                    }
+                });
+
+                // Special case for reaching the bottom of the page
+                if ((window.innerHeight + scrollPosition) >= document.body.offsetHeight - 150) {
+                    currentSectionId = 'contact';
+                }
+
+                // Update active class on both desktop and mobile links
+                const activePageName = currentSectionId; // Assuming section ID matches data-page
+                desktopNavLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('data-page') === activePageName);
+                });
+                mobileNavLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('data-page') === activePageName);
+                });
+            }
+
+            // --- Mobile Navigation ---
+            function initMobileNav() {
+                hamburger.addEventListener('click', () => {
+                    const isActive = mobileNavMenu.classList.toggle('active');
+                    hamburger.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    hamburger.setAttribute('aria-expanded', isActive);
+                    body.style.overflow = isActive ? 'hidden' : ''; // Prevent body scroll when menu open
+                });
+                // Close menu when a link is clicked
+                mobileNavMenu.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('navigate-page') || e.target.closest('.navigate-page')) {
+                        closeMobileNav();
+                    }
+                });
+                 // Close menu if clicking outside
+                 document.addEventListener('click', (e) => {
+                    if (mobileNavMenu.classList.contains('active') && !mobileNavMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                        closeMobileNav();
+                    }
+                 });
+                 // Close on Escape key
+                  document.addEventListener('keydown', (e) => {
+                      if (e.key === 'Escape' && mobileNavMenu.classList.contains('active')) {
+                          closeMobileNav();
+                      }
+                  });
+            }
+            function closeMobileNav() {
+                mobileNavMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                hamburger.setAttribute('aria-expanded', 'false');
+                body.style.overflow = '';
+            }
+
+            // --- SPA-like Page Navigation & URL Handling ---
+            function initPageNavigation() {
+                internalNavLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const targetHref = this.getAttribute('href'); // e.g., #services-page
+                        if (targetHref && targetHref.startsWith('#')) {
+                            const targetPageId = targetHref.substring(1);
+                            const targetPage = document.getElementById(targetPageId);
+
+                            // Check if it's a valid page navigation link
+                            if (targetPage && targetPage.classList.contains('page')) {
+                                e.preventDefault(); // Prevent default anchor jump
+                                showPage(targetPageId);
+                                closeMobileNav(); // Close mobile menu if open
+                                updateURLHash(targetHref); // Update browser history/URL
+                            }
+                            // Allow default behavior for other # links (like scroll-down) handled by initSmoothScrolling
+                        }
+                    });
+                });
+            }
+            function handleInitialLoadAndPopstate() {
+                const hash = window.location.hash;
+                let targetPageId = 'home-page'; // Default to home
+                if (hash && document.getElementById(hash.substring(1))?.classList.contains('page')) {
+                    targetPageId = hash.substring(1);
+                }
+                showPage(targetPageId, true); // Show the target page immediately on load/popstate
+                 // Ensure correct nav link is active on initial load
+                 updateActiveNavLinkState(targetPageId.replace('-page', ''));
+                 // Scroll to top instantly on initial load if not home
+                 if(targetPageId !== 'home-page') {
+                     const targetPage = document.getElementById(targetPageId);
+                     if(targetPage) scrollToPageTop(targetPage, 'instant');
+                 }
+            }
+            function showPage(pageId, immediate = false) {
+                const targetPage = document.getElementById(pageId);
+                if (!targetPage) {
+                     console.warn(`Page with ID '${pageId}' not found.`);
+                     return; // Exit if target page doesn't exist
+                }
+
+                const activePage = document.querySelector('.page.active');
+
+                // If the target page is already active, do nothing (or maybe scroll to top)
+                if (activePage === targetPage) {
+                    if(!immediate) scrollToPageTop(targetPage); // Scroll smoothly if clicked again
+                    return;
+                }
+
+                updateActiveNavLinkState(pageId.replace('-page', '')); // Update nav links
+
+                if (immediate) {
+                    // Immediate switch (for initial load / back/forward)
+                    if (activePage) activePage.classList.remove('active', 'exiting');
+                    targetPage.classList.remove('exiting'); // Ensure no lingering exit animation
+                    targetPage.style.display = 'block'; // Ensure it's display block before adding class
+                    targetPage.classList.add('active');
+                     // No scroll needed here, handled by handleInitialLoadAndPopstate
+                } else {
+                    // Animated transition
+                    if (activePage) {
+                        activePage.classList.add('exiting');
+                        // Use animationend event for reliable class removal
+                        activePage.addEventListener('animationend', () => {
+                           if(activePage) { // Check if activePage still exists
+                                activePage.classList.remove('active', 'exiting');
+                                activePage.style.display = 'none'; // Hide after animation
+                           }
+                        }, { once: true });
+
+                        // Start fade-in slightly before fade-out finishes for smoother feel
+                        setTimeout(() => {
+                             targetPage.classList.remove('exiting');
+                             targetPage.style.display = 'block'; // Make visible before animation starts
+                             targetPage.classList.add('active');
+                             scrollToPageTop(targetPage); // Scroll smoothly to the top of the new page
+                        }, 300); // Adjust timing based on fadeOut animation duration
+                    } else {
+                        // If no page was active initially (shouldn't happen after load, but safe fallback)
+                        targetPage.classList.remove('exiting');
+                         targetPage.style.display = 'block';
+                        targetPage.classList.add('active');
+                        scrollToPageTop(targetPage);
+                    }
+                }
+            }
+             function updateURLHash(hash) {
+                 if (history.pushState) {
+                     // Use pushState to change URL without page reload
+                     history.pushState({ page: hash.substring(1) }, null, hash);
+                 } else {
+                     // Fallback for older browsers
+                     window.location.hash = hash;
+                 }
+             }
+            function scrollToPageTop(targetPage, behavior = 'smooth') {
+                 if (!targetPage) return;
+                 const headerOffset = header.offsetHeight;
+                 // Calculate position relative to the document, not viewport
+                 const elementPosition = targetPage.offsetTop;
+                 const offsetPosition = elementPosition - headerOffset - 20; // Adjust buffer space below header
+
+                 window.scrollTo({
+                     top: offsetPosition < 0 ? 0 : offsetPosition, // Avoid negative scroll position
+                     behavior: behavior
+                 });
+             }
+            function updateActiveNavLinkState(pageName) {
+                desktopNavLinks.forEach(link => link.classList.toggle('active', link.getAttribute('data-page') === pageName));
+                mobileNavLinks.forEach(link => link.classList.toggle('active', link.getAttribute('data-page') === pageName));
+            }
+
+            // --- Smooth Scrolling for Non-Page Anchors ---
+            function initSmoothScrolling() {
+                // Select anchors that start with # but are NOT page navigation links
+                document.querySelectorAll('a[href^="#"]:not(.navigate-page)').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        const href = this.getAttribute('href');
+                        if (href === "#" || href === "#0") return; // Ignore placeholder links
+
+                        try {
+                            const targetElement = document.querySelector(href);
+                            if (targetElement) {
+                                e.preventDefault(); // Prevent default jump
+                                const headerOffset = header.offsetHeight;
+                                const elementPosition = targetElement.getBoundingClientRect().top; // Position relative to viewport
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 30; // Adjust buffer
+
+                                window.scrollTo({
+                                    top: offsetPosition < 0 ? 0 : offsetPosition,
+                                    behavior: "smooth"
+                                });
+                                closeMobileNav(); // Close mobile nav if open
+                            }
+                        } catch (error) {
+                            console.warn("Smooth scroll target not found or invalid selector:", href, error);
+                        }
+                    });
+                });
+            }
+
+            // --- Intersection Observer for Animations ---
+            function initIntersectionObserver() {
+                 const observerOptions = {
+                     root: null, // Relative to viewport
+                     rootMargin: '0px 0px -10% 0px', // Trigger when element is 10% from bottom
+                     threshold: 0.1 // Trigger when 10% of the element is visible
+                 };
+                 const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                             observer.unobserve(entry.target); // Optional: Animate only once
+                        }
+                        // Optional: Remove class to re-animate on scroll up
+                        // else { entry.target.classList.remove('visible'); }
+                    });
+                };
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+            }
+
+             // --- Floating Labels for Forms ---
+             function initFloatingLabels() {
+                 const formGroups = document.querySelectorAll('.form-group');
+
+                 function checkInput(input, label) {
+                     // Check if input has value OR is autofilled OR is a select with a value selected
+                     if (input.value.trim() !== '' || input.matches(':autofill') || (input.tagName === 'SELECT' && input.value !== '' && input.validity.valid)) {
+                         label.classList.add('active'); // This class corresponds to the CSS rule that floats the label
+                     } else {
+                         label.classList.remove('active');
+                     }
+                 }
+
+                 formGroups.forEach(group => {
+                     const input = group.querySelector('.form-control');
+                     const label = group.querySelector('.form-label');
+
+                     if (input && label) {
+                         // Initial check on page load
+                         checkInput(input, label);
+
+                         // Add event listeners
+                         input.addEventListener('focus', () => label.classList.add('active'));
+                         input.addEventListener('blur', () => checkInput(input, label));
+                         input.addEventListener('change', () => checkInput(input, label)); // Handles select changes
+
+                         // Special listener for autofill (might need refinement depending on browser)
+                         input.addEventListener('animationstart', (e) => {
+                             if (e.animationName === 'onAutoFillStart') { // Requires a CSS animation targeting autofill
+                                 checkInput(input, label);
+                             }
+                         });
+                     }
+                 });
+
+                 // Add CSS for autofill detection (optional but helpful)
+                 const style = document.createElement('style');
+                 style.textContent = `
+                     @keyframes onAutoFillStart { from {} to {} }
+                     input:-webkit-autofill { animation-name: onAutoFillStart; }
+                     /* Style autofilled background if needed */
+                     input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+                        /* -webkit-box-shadow: 0 0 0 30px var(--input-bg) inset !important; */ /* Override background */
+                        /* -webkit-text-fill-color: var(--input-text) !important; */ /* Override text color */
+                        transition: background-color 5000s ease-in-out 0s; /* Delay background change */
+                    }
+                 `;
+                 document.head.appendChild(style);
+             }
+
+
+             // --- Form Validation (Enhanced) ---
+            function initFormValidation() {
+                 const formMessageDiv = document.getElementById('formSubmissionMessage');
+                 if (!repairForm || !formMessageDiv) return;
+
+                 repairForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    formMessageDiv.innerHTML = '';
+                    formMessageDiv.className = 'mt-3'; // Reset classes
+                    let isValid = true;
+                    let firstInvalidField = null;
+
+                     // Clear previous errors
+                     repairForm.querySelectorAll('.form-message.error').forEach(msg => {
+                         msg.textContent = '';
+                         msg.style.display = 'none';
+                     });
+                     repairForm.querySelectorAll('.form-control[aria-invalid]').forEach(input => {
+                         input.removeAttribute('aria-invalid');
+                     });
+
+                    const requiredInputs = repairForm.querySelectorAll('[required]');
+
+                    requiredInputs.forEach(input => {
+                        const group = input.closest('.form-group');
+                        const msgElement = group ? group.querySelector('.form-message.error') : null;
+                        let fieldValid = true;
+                        let errorMsg = '';
+
+                        // Validation Rules
+                        if (input.tagName === 'SELECT' && !input.value) {
+                            fieldValid = false; errorMsg = 'Please select an option.';
+                        } else if (input.type !== 'checkbox' && !input.value.trim()) {
+                             fieldValid = false; errorMsg = 'This field is required.';
+                         } else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+                             fieldValid = false; errorMsg = 'Please enter a valid email address.';
+                         } else if (input.matches('[minlength]') && input.value.trim().length < parseInt(input.getAttribute('minlength'))) {
+                              fieldValid = false; errorMsg = `Minimum ${input.getAttribute('minlength')} characters required.`;
+                         }
+                         // Add more rules (e.g., phone format) if needed
+
+                        if (!fieldValid) {
+                             isValid = false;
+                             input.setAttribute('aria-invalid', 'true');
+                             if(msgElement) { msgElement.textContent = errorMsg; msgElement.style.display = 'block'; }
+                             if (!firstInvalidField) firstInvalidField = input; // Track the first error field
+                        }
+                    });
+
+                    if (isValid) {
+                        // Simulate form submission (replace with actual AJAX call)
+                        console.log('Form data submitted:', Object.fromEntries(new FormData(repairForm).entries()));
+                        formMessageDiv.innerHTML = `<p class="form-message success" style="display: block;">✔️ Thank you! Your inquiry has been sent successfully. We'll respond shortly.</p>`;
+                        repairForm.reset(); // Clear the form
+                        // Reset floating labels after reset
+                        setTimeout(() => { // Use timeout to allow reset to finish
+                            repairForm.querySelectorAll('.form-control').forEach(input => {
+                                const label = input.labels ? input.labels[0] : input.closest('.form-group')?.querySelector('.form-label');
+                                if(label) label.classList.remove('active');
+                            });
+                        }, 0);
+
+                        // Optionally clear message after a delay
+                         setTimeout(() => { formMessageDiv.innerHTML = ''; }, 8000);
+                    } else {
+                        formMessageDiv.innerHTML = '<p style="color: var(--danger); font-weight: 500;">⚠️ Please correct the errors highlighted above before submitting.</p>';
+                        if (firstInvalidField) {
+                            firstInvalidField.focus(); // Focus the first field with an error
+                            // Optionally scroll to the field if it's off-screen
+                             // firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }
+                });
+
+                // Add input event listeners to clear errors dynamically
+                 repairForm.querySelectorAll('.form-control').forEach(input => {
+                      input.addEventListener('input', () => {
+                           if (input.hasAttribute('aria-invalid')) {
+                                // Basic check on input - more complex validation could be added here
+                                if ( (input.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) &&
+                                     (!input.matches('[minlength]') || input.value.trim().length >= parseInt(input.getAttribute('minlength'))) &&
+                                     (input.tagName !== 'SELECT' || input.value) &&
+                                     (input.type === 'checkbox' ? input.checked : input.value.trim())
+                                ) {
+                                    input.removeAttribute('aria-invalid');
+                                    const group = input.closest('.form-group');
+                                    const msgElement = group ? group.querySelector('.form-message.error') : null;
+                                    if(msgElement) { msgElement.textContent = ''; msgElement.style.display = 'none'; }
+                                }
+                           }
+                      });
+                      // Also clear error on change for selects
+                      if (input.tagName === 'SELECT') {
+                           input.addEventListener('change', () => {
+                                if (input.value && input.hasAttribute('aria-invalid')) {
+                                     input.removeAttribute('aria-invalid');
+                                     const group = input.closest('.form-group');
+                                     const msgElement = group ? group.querySelector('.form-message.error') : null;
+                                     if(msgElement) { msgElement.textContent = ''; msgElement.style.display = 'none'; }
+                                }
+                           });
+                      }
+                 });
+            }
+
+             // --- Repair Status Tracker (Mock API) ---
+            function initRepairTracker() {
+                const resultDiv = document.getElementById('trackerResult');
+                const orderIdInput = document.getElementById('trackerOrderId');
+                if (!trackerForm || !resultDiv || !orderIdInput) return;
+
+                trackerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const orderId = orderIdInput.value.trim().toUpperCase();
+
+                    // Show loader and reset state
+                    resultDiv.innerHTML = `<div class="loader-circle" style="margin: 25px auto; width: 35px; height: 35px; border-width: 4px; border-color: var(--border-color); border-top-color: var(--primary); border-right-color: var(--accent);"></div>`;
+                    resultDiv.className = 'tracker-result show'; // Make visible immediately
+
+                    if (!orderId) {
+                        displayTrackerResult('<p>Please enter your Repair Order ID.</p>', 'error');
+                        return;
+                    }
+
+                    // Simulate API Call Delay
+                    setTimeout(() => {
+                        fetchRepairStatus(orderId);
+                    }, 800); // Simulate network latency
+                });
+
+                function fetchRepairStatus(orderId) {
+                    // --- Mock Data Store ---
+                    const sampleStatuses = {
+                         'R12345': { status: 'completed', device: 'iPhone 13 Pro', service: 'Screen Replacement', tech: 'Alex J.', steps: ['Received & Logged', 'Initial Diagnosis', 'Repair In Progress', 'Quality Control Check', 'Ready for Pickup', 'Order Completed'], currentStep: 6 },
+                         'S67890': { status: 'in-progress', device: 'Samsung S22 Ultra', service: 'Battery Replacement', tech: 'Michael C.', steps: ['Received & Logged', 'Diagnosis Complete', 'Awaiting Part Arrival', 'Repair Scheduled', 'Repair In Progress', 'Quality Control'], currentStep: 5, estimate: 'Est. 1-2 business days' },
+                         'MABCDE': { status: 'diagnosis', device: 'MacBook Air M1', service: 'Liquid Damage Assessment', tech: 'Sarah W.', steps: ['Received & Logged', 'Initial Assessment', 'Detailed Diagnosis', 'Quote Generation', 'Awaiting Approval', 'Repair'], currentStep: 3, estimate: 'Est. 2-3 business days for quote' },
+                         'P00001': { status: 'ready', device: 'Pixel 7', service: 'Charging Port Replacement', tech: 'Alex J.', steps: ['Received & Logged', 'Diagnosis Complete', 'Repair In Progress', 'Final Testing', 'Ready for Pickup'], currentStep: 5 },
+                         'X99001': { status: 'quote-pending', device: 'Xbox Series S', service: 'HDMI Port Repair', tech: 'Michael C.', steps: ['Received & Logged', 'Diagnosis Complete', 'Quote Sent', 'Awaiting Customer Approval', 'Repair', 'Testing'], currentStep: 4, estimate: 'Awaiting your approval' }
+                     };
+                    // --- End Mock Data ---
+
+                    const data = sampleStatuses[orderId];
+
+                    if (data) {
+                        displayTrackerResult(generateStatusHtml(orderId, data), 'success');
+                    } else {
+                        displayTrackerResult(`<p>Order ID "${orderId}" not found. Please double-check the ID or contact us directly for assistance.</p>`, 'error');
+                    }
+                }
+
+                function generateStatusHtml(orderId, data) {
+                    let html = `<h4>Status for Order #${orderId}</h4>`;
+                    html += `<p style="font-size: 1.05rem;"><strong>Device:</strong> ${data.device} <br> <strong>Service:</strong> ${data.service}</p>`;
+                    html += `<p><strong>Assigned Technician:</strong> ${data.tech || 'N/A'}</p>`;
+                    html += `<p><strong>Current Status:</strong> <strong style="color: ${getStatusColor(data.status)};">${formatStatus(data.status)}</strong></p>`;
+
+                    if (data.estimate && data.status !== 'completed' && data.status !== 'ready') {
+                        html += `<p><strong>Estimate:</strong> ${data.estimate}</p>`;
+                    }
+
+                    html += '<div class="status-steps">';
+                    data.steps.forEach((step, index) => {
+                        let stepClass = '';
+                        if (index + 1 < data.currentStep) {
+                            stepClass = 'completed';
+                        } else if (index + 1 === data.currentStep) {
+                            stepClass = 'active';
+                        }
+                        html += `<div class="status-step ${stepClass}"><span>${step}</span></div>`; // Wrap text in span for potential styling
+                    });
+                    html += '</div>';
+
+                    if (data.status === 'ready') {
+                        html += `<p class="mt-3" style="font-weight: bold; color: var(--success); font-size: 1.1rem;">Your device repair is complete and ready for pickup!</p>`;
+                    } else if (data.status === 'completed') {
+                        html += `<p class="mt-3" style="font-weight: 500; color: var(--text-muted); font-size: 1rem;">This repair order has been completed and picked up.</p>`;
+                    } else if (data.status === 'quote-pending') {
+                         html += `<p class="mt-3" style="font-weight: bold; color: var(--warning); font-size: 1.1rem;">Action Required: Please check your email or call us to approve the repair quote.</p>`;
+                    }
+
+                    return html;
+                }
+
+                function displayTrackerResult(html, type) {
+                    resultDiv.innerHTML = html;
+                    // Use classList.add/remove for cleaner class management
+                    resultDiv.classList.remove('success', 'error'); // Remove previous types
+                    if (type === 'success') {
+                        resultDiv.classList.add('success');
+                    } else if (type === 'error') {
+                        resultDiv.classList.add('error');
+                    }
+                    resultDiv.classList.add('show'); // Ensure it's visible
+                }
+
+                function formatStatus(status) {
+                    // Improved status formatting
+                    return (status.charAt(0).toUpperCase() + status.slice(1)).replace('-', ' ');
+                }
+                function getStatusColor(status) {
+                     switch(status) {
+                         case 'completed': case 'ready': return 'var(--success)';
+                         case 'in-progress': return 'var(--primary)';
+                         case 'diagnosis': case 'quote-pending': return 'var(--warning)';
+                         default: return 'var(--text-muted)'; // For statuses like 'received' if added
+                     }
+                 }
+            }
+
+
+             // --- Dynamic Pricing Calculator (Using Form Inputs) ---
+             function initPriceCalculator() {
+                 if (!calculatorForm) return; // Exit if the form doesn't exist
+
+                 const prices = { /* --- KEEP YOUR EXISTING PRICE DATA STRUCTURE HERE --- */
+                     'iPhone': {
+                         'Screen Repair': { 'iPhone 14 Series': 199, 'iPhone 13 Series': 129, 'iPhone 12 Series': 119, 'iPhone 11 Series': 99, 'iPhone X/XS/XR': 89, 'iPhone 6/7/8/SE': 69, 'Other': 79 },
+                         'Battery Replacement': { 'iPhone 14 Series': 89, 'iPhone 13 Series': 69, 'iPhone 12 Series': 59, 'iPhone 11 Series': 49, 'iPhone X/XS/XR': 49, 'iPhone 6/7/8/SE': 39, 'Other': 45 },
+                         'Water Damage': 99, 'Charging Port': 59, 'Software Issue': 49, 'Other': 69
+                     },
+                     'Android': {
+                         'Screen Repair': { 'Samsung S23 Series': 249, 'Samsung S22 Series': 199, 'Samsung S21/S20 Series': 149, 'Google Pixel 7/8 Series': 179,'Google Pixel 6 Series': 129, 'Other High-End': 139, 'Mid-Range': 99, 'Budget': 79, 'Other': 89 },
+                         'Battery Replacement': { 'Samsung S23 Series': 89, 'Samsung S22 Series': 79, 'Samsung S21/S20 Series': 69, 'Google Pixel 7/8 Series': 79, 'Google Pixel 6 Series': 69, 'Other': 59 },
+                          'Water Damage': 119, 'Charging Port': 69, 'Software Issue': 59, 'Other': 79
+                     },
+                     'iPad': {
+                         'Screen Repair': { 'iPad Pro 12.9': 399, 'iPad Pro 11': 299, 'iPad Air': 199, 'iPad Mini': 179, 'iPad Regular': 149, 'Other': 169 },
+                         'Battery Replacement': { 'iPad Pro': 149, 'iPad Air/Mini': 129, 'iPad Regular': 99, 'Other': 119 },
+                         'Water Damage': 159, 'Charging Port': 89, 'Other': 99
+                     },
+                     'MacBook': {
+                         'Screen Repair': { 'MacBook Pro 16': 699, 'MacBook Pro 14': 599, 'MacBook Pro 13': 499, 'MacBook Air': 399, 'Other': 449 },
+                         'Battery Replacement': { 'MacBook Pro': 199, 'MacBook Air': 149, 'Other': 179 },
+                         'Keyboard Replacement': 199, 'Water Damage': 299, 'Other': 149
+                     },
+                     'Console': {
+                         'HDMI Port': { 'PS5/Xbox Series X': 99, 'PS4/Xbox One': 79, 'Nintendo Switch': 69, 'Other': 75 },
+                         'Drive Repair': 99, 'Controller Repair': 49, 'Other': 69 // Example: Added Power Supply if needed
+                     }
+                 }; /* --- END PRICE DATA --- */
+
+                 const deviceTypeSelect = document.getElementById('calculatorDeviceType');
+                 const deviceModelSelect = document.getElementById('calculatorDeviceModel');
+                 const serviceTypeSelect = document.getElementById('calculatorServiceType');
+                 const calculateBtn = document.getElementById('calculatePrice');
+                 const resultDiv = document.getElementById('calculatorResult');
+                 const estimatedPriceSpan = document.getElementById('estimatedPrice');
+
+                 deviceTypeSelect.addEventListener('change', updateModelOptions);
+                 calculateBtn.addEventListener('click', calculateAndShowPrice);
+                 // Hide result when inputs change
+                 deviceModelSelect.addEventListener('change', () => resultDiv.classList.remove('show'));
+                 serviceTypeSelect.addEventListener('change', () => resultDiv.classList.remove('show'));
+
+
+                 function updateModelOptions() {
+                     const deviceType = deviceTypeSelect.value;
+                     deviceModelSelect.innerHTML = '<option value="" disabled selected>Select Model (Optional)</option>'; // Reset models
+                     deviceModelSelect.value = ''; // Ensure placeholder is selected
+                     deviceModelSelect.disabled = true; // Disable by default
+                     resultDiv.classList.remove('show'); // Hide result on type change
+
+                     let modelsFound = new Set(); // Use Set to avoid duplicate models
+
+                     if (deviceType && prices[deviceType]) {
+                         // Look for models within common services that have model-specific pricing
+                         const modelServices = ['Screen Repair', 'Battery Replacement', 'HDMI Port']; // Add other services if they define models
+                         for (const serviceName of modelServices) {
+                             const serviceData = prices[deviceType][serviceName];
+                             if (serviceData && typeof serviceData === 'object') {
+                                 Object.keys(serviceData).forEach(model => {
+                                     if (model !== 'Other') { // Exclude the generic 'Other' key
+                                         modelsFound.add(model);
+                                     }
+                                 });
+                             }
+                         }
+                     }
+
+                     // Populate dropdown if models were found
+                     if (modelsFound.size > 0) {
+                         // Sort models alphabetically for better UX
+                         Array.from(modelsFound).sort().forEach(model => {
+                              const option = document.createElement('option');
+                              option.value = model;
+                              option.textContent = model;
+                              deviceModelSelect.appendChild(option);
+                         });
+
+                         // Add the 'Other / Not Sure' option at the end
+                         const otherOption = document.createElement('option');
+                         otherOption.value = "Other";
+                         otherOption.textContent = "Other / Not Sure";
+                         deviceModelSelect.appendChild(otherOption);
+
+                         deviceModelSelect.disabled = false; // Enable the dropdown
+                     }
+
+                     // Trigger floating label update for model select
+                     const modelLabel = deviceModelSelect.labels ? deviceModelSelect.labels[0] : deviceModelSelect.closest('.form-group')?.querySelector('.form-label');
+                     if (modelLabel) modelLabel.classList.remove('active');
+                 }
+
+                 function calculateAndShowPrice() {
+                     const deviceType = deviceTypeSelect.value;
+                     const deviceModel = deviceModelSelect.value || 'Other'; // Default to 'Other' if blank or disabled
+                     const serviceType = serviceTypeSelect.value;
+
+                     if (!deviceType || !serviceType) {
+                         alert('Please select both Device Type and Service Needed.');
+                         return;
+                     }
+
+                     let price = 'Quote'; // Default to 'Quote'
+                     let priceFound = false;
+                     let priceIsEstimate = true; // Assume estimate unless it's a flat rate
+
+                     if (prices[deviceType] && prices[deviceType][serviceType]) {
+                         const serviceData = prices[deviceType][serviceType];
+
+                         if (typeof serviceData === 'object') {
+                             // Service has model-specific pricing
+                             if (serviceData[deviceModel]) { // Check for specific model price
+                                 price = serviceData[deviceModel];
+                                 priceFound = true;
+                             } else if (serviceData['Other']) { // Fallback to 'Other' price within the service
+                                 price = serviceData['Other'];
+                                 priceFound = true;
+                             }
+                             // If no specific or 'Other' price found, it remains 'Quote'
+                         } else if (typeof serviceData === 'number') {
+                             // Service has a flat rate (not model-dependent)
+                             price = serviceData;
+                             priceFound = true;
+                             priceIsEstimate = false; // Flat rate isn't an estimate
+                         }
+                         // If serviceData is not an object or number, it remains 'Quote'
+                     }
+
+                     // Update the result display
+                     if (priceFound) {
+                         estimatedPriceSpan.textContent = price;
+                         resultDiv.querySelector('p').textContent = priceIsEstimate
+                             ? 'This is an estimate. Final price depends on specific model and damage severity.'
+                             : 'Standard price for this service.';
+                     } else {
+                         estimatedPriceSpan.textContent = 'Quote';
+                         resultDiv.querySelector('p').textContent = 'This service requires a specific quote. Please contact us or use the inquiry form.';
+                     }
+
+                      // Animate the result visibility
+                      resultDiv.classList.remove('show'); // Ensure it's hidden first
+                      void resultDiv.offsetWidth; // Trigger reflow to restart animation
+                      resultDiv.classList.add('show');
+                 }
+             }
+
+
+            // --- Subtle Particle Animation (Refined) ---
+            function initParticles() {
+                const canvas = particleCanvas;
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+                let animationFrameId;
+                let lastTimestamp = 0;
+                const targetFPS = 30; // Lower FPS for less impact
+                const frameInterval = 1000 / targetFPS;
+
+                 function resizeCanvas() {
+                     canvas.width = canvas.offsetWidth * window.devicePixelRatio; // Adjust for pixel density
+                     canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+                     canvas.style.width = canvas.offsetWidth + 'px';
+                     canvas.style.height = canvas.offsetHeight + 'px';
+                     ctx.scale(window.devicePixelRatio, window.devicePixelRatio); // Scale context
+                     createParticles();
+                 }
+
+                function createParticles() {
+                     particles = [];
+                     // Density based on viewport area, adjust coefficient as needed
+                     const particleCount = Math.max(30, Math.min(100, Math.floor(canvas.offsetWidth * canvas.offsetHeight / 15000)));
+
+                    for (let i = 0; i < particleCount; i++) {
+                        particles.push({
+                            x: Math.random() * canvas.offsetWidth,
+                            y: Math.random() * canvas.offsetHeight,
+                            vx: (Math.random() - 0.5) * 0.3, // Very slow velocity
+                            vy: (Math.random() - 0.5) * 0.3,
+                            radius: Math.random() * 1.2 + 0.4, // Smaller radius
+                             // Color based on theme (subtle white/off-white)
+                            alpha: Math.random() * 0.3 + 0.1 // More transparent
+                        });
+                    }
+                }
+
+                function drawParticles(timestamp) {
+                     if (!ctx) return;
+
+                     // Limit FPS
+                     const elapsed = timestamp - lastTimestamp;
+                     if (elapsed < frameInterval) {
+                         animationFrameId = requestAnimationFrame(drawParticles);
+                         return;
+                     }
+                     lastTimestamp = timestamp - (elapsed % frameInterval);
+
+                     ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight); // Use canvas dimensions before scaling
+
+                     const particleColor = body.classList.contains('dark-mode')
+                         ? 'hsla(0, 0%, 90%, 0.5)' // Slightly dimmer white for dark mode
+                         : 'hsla(0, 0%, 100%, 0.7)'; // Subtle white for light mode
+
+                     particles.forEach(p => {
+                         ctx.beginPath();
+                         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                         ctx.fillStyle = particleColor;
+                         ctx.globalAlpha = p.alpha;
+                         ctx.fill();
+
+                         // Update position
+                         p.x += p.vx;
+                         p.y += p.vy;
+
+                         // Boundary check (wrap around smoothly)
+                         if (p.x < -p.radius) p.x = canvas.offsetWidth + p.radius;
+                         if (p.x > canvas.offsetWidth + p.radius) p.x = -p.radius;
+                         if (p.y < -p.radius) p.y = canvas.offsetHeight + p.radius;
+                         if (p.y > canvas.offsetHeight + p.radius) p.y = -p.radius;
+                     });
+                     ctx.globalAlpha = 1.0; // Reset alpha
+
+                     animationFrameId = requestAnimationFrame(drawParticles); // Request next frame
+                }
+
+                 // Throttle resize event
+                 let resizeTimeout;
+                 window.addEventListener('resize', () => {
+                     clearTimeout(resizeTimeout);
+                     resizeTimeout = setTimeout(resizeCanvas, 200);
+                 });
+
+                 // Handle visibility change to pause/resume animation
+                 document.addEventListener("visibilitychange", () => {
+                     if (document.hidden) {
+                         cancelAnimationFrame(animationFrameId);
+                     } else {
+                          lastTimestamp = performance.now(); // Reset timestamp on resume
+                          if (!animationFrameId) animateParticles(); // Resume only if not already running
+                     }
+                 });
+
+                 function animateParticles() {
+                    animationFrameId = requestAnimationFrame(drawParticles);
+                 }
+
+                 // Initial setup
+                 resizeCanvas();
+                 animateParticles();
+            }
+
+        }); // End DOMContentLoaded
+    </script>
+</body>
+</html>
